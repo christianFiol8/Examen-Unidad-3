@@ -7,9 +7,14 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
 import javax.swing.JCheckBox;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
 
 public class ControlEscolar {
 
@@ -51,7 +56,8 @@ public class ControlEscolar {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//this.login(frame);
-		this.registro(frame);
+		//this.registro(frame);
+		this.panelAlumnos(frame);
 		
 	}
 	
@@ -63,6 +69,8 @@ public class ControlEscolar {
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setBackground(Color.decode("#EFEFEF"));
 		panel.setLayout(null);
+		
+		
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(210, 103, 500, 500);
@@ -107,6 +115,8 @@ public class ControlEscolar {
 		lblNewLabel.setForeground(Color.decode("#E47E38"));
 		lblNewLabel.setBounds(330, 20,300, 100);
 		panel.add(lblNewLabel);
+		
+			
 		
 	}
 	
@@ -169,7 +179,111 @@ public class ControlEscolar {
 		JLabel lblNewLabel_5 = new JLabel("Registro");
 		lblNewLabel_5.setFont(new Font("Times New Roman", Font.BOLD, 40));
 		lblNewLabel_5.setForeground(Color.decode("#E47E38"));
-		lblNewLabel_5.setBounds(330, 20,300, 100);
+		lblNewLabel_5.setBounds(380, 20,300, 100);
 		panel.add(lblNewLabel_5);
+	}
+	
+	public void panelAlumnos(JFrame frame) {
+		
+		JPanel panel = new JPanel();
+		frame.getContentPane().add(panel, BorderLayout.CENTER);
+		panel.setBackground(Color.decode("#EFEFEF"));
+		panel.setLayout(null);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, 0, 918, 40);
+		menuBar.setBackground(Color.decode("#E47E38"));
+		panel.add(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("Inicio");
+		menuBar.add(mnNewMenu);
+		
+		JLabel lblNewLabel_6 = new JLabel("Hola Alumno");
+		lblNewLabel_6.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		lblNewLabel_6.setBounds(365, 50, 197, 100);
+		panel.add(lblNewLabel_6);
+		
+		JLabel lblNewLabel_7 = new JLabel("¿Qué desea hacer hoy?");
+		lblNewLabel_7.setFont(new Font("Times New Roman", Font.PLAIN, 16));
+		lblNewLabel_7.setBounds(375, 128, 147, 40);
+		panel.add(lblNewLabel_7);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(77, 194, 190, 188);
+		panel_1.setBorder(BorderFactory.createLineBorder(Color.black , 2));
+		panel_1.setLayout(null);
+		panel.add(panel_1);
+		
+		ImageIcon imagenDescargar = new ImageIcon("descarga.png");
+		JButton botonDescargar = new JButton();
+		botonDescargar.setBounds(0, 0, 190, 140);
+		botonDescargar.setIcon(imagenDescargar);
+		panel_1.add(botonDescargar);
+		
+		JLabel lblNewLabel_8 = new JLabel("Descargar Información");
+		lblNewLabel_8.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		lblNewLabel_8.setBounds(20, 155, 200, 13);
+		panel_1.add(lblNewLabel_8);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBounds(360, 194, 190, 188);
+		panel_2.setBorder(BorderFactory.createLineBorder(Color.black , 2));
+		panel_2.setLayout(null);
+		panel.add(panel_2);
+		
+		JButton botonConsultar = new JButton();
+		botonConsultar.setBounds(0, 0, 190, 140);
+		panel_2.add(botonConsultar);
+		
+		JLabel lblNewLabel_9 = new JLabel("Consultar");
+		lblNewLabel_9.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		lblNewLabel_9.setBounds(55, 155, 200, 13);
+		panel_2.add(lblNewLabel_9);
+		
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBorder(BorderFactory.createLineBorder(Color.black , 2));
+		panel_3.setBounds(646, 194, 190, 188);
+		panel_3.setLayout(null);
+		panel.add(panel_3);
+		
+		JButton botonCrear = new JButton();
+		botonCrear.setBounds(0, 0, 190, 140);
+		panel_3.add(botonCrear);
+		
+		JLabel lblNewLabel_10 = new JLabel("Crear");
+		lblNewLabel_10.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		lblNewLabel_10.setBounds(70, 155, 45, 13);
+		panel_3.add(lblNewLabel_10);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setLayout(null);
+		panel_4.setBorder(BorderFactory.createLineBorder(Color.black , 2));
+		panel_4.setBounds(208, 437, 190, 188);
+		panel.add(panel_4);
+		
+		JButton botonEditar = new JButton();
+		botonEditar.setBounds(0, 0, 190, 140);
+		panel_4.add(botonEditar);
+		
+		JLabel lblNewLabel_11 = new JLabel("Editar");
+		lblNewLabel_11.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		lblNewLabel_11.setBounds(70, 155, 45, 13);
+		panel_4.add(lblNewLabel_11);
+		
+		JPanel panel_5 = new JPanel();
+		panel_5.setLayout(null);
+		panel_5.setBorder(BorderFactory.createLineBorder(Color.black , 2));
+		panel_5.setBounds(498, 437, 190, 188);
+		panel.add(panel_5);
+		
+		JButton botonEliminar = new JButton();
+		botonEliminar.setBounds(0, 0, 190, 140);
+		panel_5.add(botonEliminar);
+		
+		JLabel lblNewLabel_12 = new JLabel("Eliminar");
+		lblNewLabel_12.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		lblNewLabel_12.setBounds(60, 155, 100, 13);
+		panel_5.add(lblNewLabel_12);
 	}
 }
