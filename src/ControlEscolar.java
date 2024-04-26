@@ -57,8 +57,9 @@ public class ControlEscolar {
 		
 		//this.login(frame);
 		//this.registro(frame);
-		this.panelAlumnos(frame);
+		//this.panelAlumnos(frame);
 		//this.panelDocentes(frame);
+		this.consultarAlumno(frame);
 		
 	}
 	
@@ -215,8 +216,8 @@ public class ControlEscolar {
 		panel_1.setLayout(null);
 		panel.add(panel_1);
 		
-		ImageIcon imagenDescargar = new ImageIcon("descarga.png");
-		JButton botonDescargar = new JButton();
+		ImageIcon imagenDescargar = new ImageIcon(getClass().getResource("/Imagenes/descarga.png"));
+		JButton botonDescargar = new JButton(imagenDescargar);
 		botonDescargar.setBounds(0, 0, 190, 140);
 		botonDescargar.setIcon(imagenDescargar);
 		panel_1.add(botonDescargar);
@@ -278,7 +279,8 @@ public class ControlEscolar {
 		panel_5.setBounds(498, 437, 190, 188);
 		panel.add(panel_5);
 		
-		JButton botonEliminar = new JButton();
+		ImageIcon imagenEliminar = new ImageIcon(getClass().getResource("/Imagenes/BorrarIcono.png"));
+		JButton botonEliminar = new JButton(imagenEliminar);
 		botonEliminar.setBounds(0, 0, 190, 140);
 		panel_5.add(botonEliminar);
 		
@@ -389,5 +391,105 @@ public class ControlEscolar {
 		lblNewLabel_12.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblNewLabel_12.setBounds(60, 155, 100, 13);
 		panel_5.add(lblNewLabel_12);
+	}
+	
+	public void consultarAlumno(JFrame frame) {
+		JPanel panel12 = new JPanel();
+		frame.getContentPane().add(panel12, BorderLayout.CENTER);
+		panel12.setBackground(Color.decode("#EFEFEF"));
+		panel12.setLayout(null);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, 0, 918, 40);
+		menuBar.setBackground(Color.decode("#E47E38"));
+		panel12.add(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("Inicio");
+		menuBar.add(mnNewMenu);
+		
+		JLabel lblNewLabel_8 = new JLabel("Consulta de alumnos");
+		lblNewLabel_8.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		lblNewLabel_8.setBounds(20, 30, 300, 100);
+		panel12.add(lblNewLabel_8);
+		
+		JPanel panel_44 = new JPanel();
+		panel_44.setLayout(null);
+		panel_44.setBorder(BorderFactory.createLineBorder(Color.black , 2));
+		panel_44.setBounds(20, 130, 880, 400);
+		panel12.add(panel_44);
+		
+		JLabel lblNewLabel_9 = new JLabel("Apellido paterno");
+		lblNewLabel_9.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_9.setBounds(70, 30, 170, 40);
+		panel_44.add(lblNewLabel_9);
+		
+		textField = new JTextField();
+		textField.setBounds(250, 40, 250, 25);
+		panel_44.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_10 = new JLabel("Apellido materno");
+		lblNewLabel_10.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_10.setBounds(63, 90, 190, 40);
+		panel_44.add(lblNewLabel_10);
+		
+		JTextField textField4 = new JTextField();
+		textField4.setBounds(250, 100, 250, 25);
+		panel_44.add(textField4);
+		textField4.setColumns(10);
+		
+		JLabel lblNewLabel_15 = new JLabel("Nombre");
+		lblNewLabel_15.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_15.setBounds(155, 150, 190, 40);
+		panel_44.add(lblNewLabel_15);
+		
+		JTextField textField8 = new JTextField();
+		textField8.setBounds(250, 160, 250, 25);
+		panel_44.add(textField8);
+		textField8.setColumns(10);
+		
+		JLabel lblNewLabel_11 = new JLabel("Fecha de nacimiento");
+		lblNewLabel_11.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_11.setBounds(30, 210, 220, 40);
+		panel_44.add(lblNewLabel_11);
+		
+		JTextField textField5 = new JTextField();
+		textField5.setBounds(250, 220, 250, 25);
+		panel_44.add(textField5);
+		textField5.setColumns(10);
+		
+		JLabel lblNewLabel_12 = new JLabel("Correo electronico");
+		lblNewLabel_12.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_12.setBounds(50, 270, 200, 40);
+		panel_44.add(lblNewLabel_12);
+		
+		JTextField textField6 = new JTextField();
+		textField6.setBounds(250, 280, 250, 25);
+		panel_44.add(textField6);
+		textField6.setColumns(10);
+		
+		JLabel lblNewLabel_13 = new JLabel("Telefono");
+		lblNewLabel_13.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_13.setBounds(145, 330, 147, 40);
+		panel_44.add(lblNewLabel_13);
+		
+		JTextField textField7 = new JTextField();
+		textField7.setBounds(250, 340, 250, 25);
+		panel_44.add(textField7);
+		textField7.setColumns(10);
+		
+		ImageIcon camara = new ImageIcon(getClass().getResource("/Imagenes/CamaraIcono.png"));
+		JLabel lblNewLabel_14 = new JLabel("Fotografia del alumno");
+		lblNewLabel_14.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lblNewLabel_14.setIcon(camara);
+		lblNewLabel_14.setBounds(575, 30, 270, 40);
+		panel_44.add(lblNewLabel_14);
+		
+		ImageIcon imagenUsuario = new ImageIcon(getClass().getResource("/Imagenes/IconoFoto.png"));
+		JButton botonDescargar = new JButton(imagenUsuario);
+		botonDescargar.setOpaque(true);
+		botonDescargar.setBackground(Color.white);
+		botonDescargar.setBounds(580, 100, 256, 256);
+		panel_44.add(botonDescargar);
 	}
 }
