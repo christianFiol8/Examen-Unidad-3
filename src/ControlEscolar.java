@@ -4,8 +4,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
+
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.JCheckBox;
@@ -55,12 +60,74 @@ public class ControlEscolar {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		this.seleccionPerfil(frame);
 		//this.login(frame);
 		//this.registro(frame);
 		//this.panelAlumnos(frame);
 		//this.panelDocentes(frame);
-		this.consultarAlumno(frame);
+		//this.consultarAlumno(frame);
 		
+	}
+	
+	public void seleccionPerfil(JFrame frame) {
+		JPanel panel = new JPanel();
+		frame.getContentPane().add(panel, BorderLayout.CENTER);
+		panel.setBackground(Color.white);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_16 = new JLabel("Seleccione Perfil");
+		lblNewLabel_16.setFont(new Font("Times New Roman", Font.BOLD, 40));
+		lblNewLabel_16.setBounds(330, 50, 300, 100);
+		panel.add(lblNewLabel_16);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(250, 194, 190, 188);
+		panel_1.setBorder(BorderFactory.createLineBorder(Color.black , 2));
+		panel_1.setLayout(null);
+		panel.add(panel_1);
+		
+		ImageIcon imagenAlumno = new ImageIcon(getClass().getResource("/Imagenes/students.png"));
+		JButton botonAlumno = new JButton(imagenAlumno);
+		botonAlumno.setBounds(0, 0, 190, 140);
+		botonAlumno.setBackground(Color.white);
+		botonAlumno.setIcon(imagenAlumno);
+		panel_1.add(botonAlumno);
+		botonAlumno.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				cambiarPantalla();
+				login(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
+		
+		JLabel lblNewLabel_1 = new JLabel("Alumno");
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblNewLabel_1.setBounds(60, 155, 200, 13);
+		panel_1.add(lblNewLabel_1);
+		
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBounds(500, 194, 190, 188);
+		panel_2.setBorder(BorderFactory.createLineBorder(Color.black , 2));
+		panel_2.setLayout(null);
+		panel.add(panel_2);
+		
+		ImageIcon imagenDocente = new ImageIcon(getClass().getResource("/Imagenes/teacher.png"));
+		JButton botonDocente = new JButton(imagenDocente);
+		botonDocente.setBounds(0, 0, 190, 140);
+		botonDocente.setBackground(Color.white);
+		botonDocente.setIcon(imagenDocente);
+		panel_2.add(botonDocente);
+		
+		JLabel lblNewLabel_2 = new JLabel("Docente");
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblNewLabel_2.setBounds(60, 155, 200, 13);
+		panel_2.add(lblNewLabel_2);
 	}
 	
 	
@@ -69,13 +136,13 @@ public class ControlEscolar {
 		
 		JPanel panel = new JPanel();
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setBackground(Color.decode("#EFEFEF"));
+		panel.setBackground(Color.decode("#F4D462"));
 		panel.setLayout(null);
 		
 		
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(210, 103, 500, 500);
+		panel_1.setBounds(50, 103, 500, 500);
 		panel_1.setBackground(Color.decode("#D4CFD5"));
 		panel.add(panel_1);
 		panel_1.setLayout(null);
@@ -114,14 +181,23 @@ public class ControlEscolar {
 		
 		JLabel lblNewLabel = new JLabel("Inicio de Sesión");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 40));
-		lblNewLabel.setForeground(Color.decode("#E47E38"));
-		lblNewLabel.setBounds(330, 20,300, 100);
+		lblNewLabel.setForeground(Color.white);
+		lblNewLabel.setBounds(160, 20,300, 100);
 		panel.add(lblNewLabel);
+		
+		JLabel logo = new JLabel();
+		logo.setSize(300, 300);
+		logo.setLocation(600, 200);
+		ImageIcon locoIcon = new ImageIcon(getClass().getResource("/Imagenes/gatoSalvaje.png"));
+		logo.setIcon(locoIcon);
+		panel.add(logo);
+		
 		
 			
 		
 	}
 	
+	//Panel de registro
 	public void registro(JFrame frame) {
 		JPanel panel = new JPanel();
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
@@ -185,6 +261,8 @@ public class ControlEscolar {
 		panel.add(lblNewLabel_5);
 	}
 	
+	
+	//Panel de alumnos
 	public void panelAlumnos(JFrame frame) {
 		
 		JPanel panel = new JPanel();
@@ -236,6 +314,18 @@ public class ControlEscolar {
 		JButton botonConsultar = new JButton();
 		botonConsultar.setBounds(0, 0, 190, 140);
 		panel_2.add(botonConsultar);
+		botonConsultar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				cambiarPantalla();
+				consultarAlumno(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
 		
 		JLabel lblNewLabel_9 = new JLabel("Consultar");
 		lblNewLabel_9.setFont(new Font("Times New Roman", Font.BOLD, 15));
@@ -394,6 +484,8 @@ public class ControlEscolar {
 	}
 	
 	public void consultarAlumno(JFrame frame) {
+
+
 		JPanel panel12 = new JPanel();
 		frame.getContentPane().add(panel12, BorderLayout.CENTER);
 		panel12.setBackground(Color.decode("#EFEFEF"));
@@ -491,5 +583,19 @@ public class ControlEscolar {
 		botonDescargar.setBackground(Color.white);
 		botonDescargar.setBounds(580, 100, 256, 256);
 		panel_44.add(botonDescargar);
+	}
+	
+	public void cambiarPantalla() {
+		
+		Component[] elementos = frame.getContentPane().getComponents();
+		for(int i=0 ; i<elementos.length ; i++) {
+			if(elementos[i].getClass().toString().equals("class javax.swing.JPanel")) {
+				
+				JPanel panel = ((JPanel) elementos[i]);
+				
+				frame.remove(panel);
+				
+			}
+		}
 	}
 }
