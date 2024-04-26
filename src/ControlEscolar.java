@@ -20,6 +20,7 @@ import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 public class ControlEscolar {
 
@@ -60,12 +61,35 @@ public class ControlEscolar {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		this.seleccionPerfil(frame);
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, 0, 932, 22);
+		frame.getContentPane().add(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("Cuenta");
+		menuBar.add(mnNewMenu);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("Cerrar Sesión");
+		mnNewMenu.add(mntmNewMenuItem);
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				cambiarPantalla();
+				logout(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
+		
+		//this.seleccionPerfil(frame);
 		//this.login(frame);
 		//this.registro(frame);
-		//this.panelAlumnos(frame);
+		this.panelAlumnos(frame);
 		//this.panelDocentes(frame);
 		//this.consultarAlumno(frame);
+		//this.logout(frame);
 		
 	}
 	
@@ -270,13 +294,13 @@ public class ControlEscolar {
 		panel.setBackground(Color.decode("#EFEFEF"));
 		panel.setLayout(null);
 		
-		JMenuBar menuBar = new JMenuBar();
+		/*JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 918, 40);
 		menuBar.setBackground(Color.decode("#E47E38"));
 		panel.add(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Inicio");
-		menuBar.add(mnNewMenu);
+		menuBar.add(mnNewMenu);*/
 		
 		JLabel lblNewLabel_6 = new JLabel("Hola Alumno");
 		lblNewLabel_6.setFont(new Font("Times New Roman", Font.BOLD, 30));
@@ -583,6 +607,39 @@ public class ControlEscolar {
 		botonDescargar.setBackground(Color.white);
 		botonDescargar.setBounds(580, 100, 256, 256);
 		panel_44.add(botonDescargar);
+	}
+	
+	public void logout(JFrame frame) {
+		JPanel panel = new JPanel();
+		frame.getContentPane().add(panel, BorderLayout.CENTER);
+		panel.setBackground(Color.white);
+		panel.setLayout(null);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(150, 136, 630, 400);
+		panel.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblNewLabel_17 = new JLabel("Cerrando Sesión...");
+		lblNewLabel_17.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		lblNewLabel_17.setBounds(250, 146, 150, 13);
+		panel_1.add(lblNewLabel_17);
+		
+		JButton btnNewButton_1 = new JButton("Pulse aquí para volver al inicio");
+		btnNewButton_1.setBounds(190, 277, 250, 21);
+		btnNewButton_1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				cambiarPantalla();
+				seleccionPerfil(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
+		panel_1.add(btnNewButton_1);
 	}
 	
 	public void cambiarPantalla() {
