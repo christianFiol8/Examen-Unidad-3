@@ -35,6 +35,9 @@ public class ControlEscolar {
 	private JTextField textField;
 	private JTextField textField_1, textField_2;
 	private JPasswordField passwordField;
+	
+	JButton botonDocente;
+	JButton botonAlumno;
 
 	/**
 	 * Launch the application.
@@ -70,6 +73,7 @@ public class ControlEscolar {
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 932, 22);
+		menuBar.setBackground(Color.decode("#E09923"));
 		frame.getContentPane().add(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Cuenta");
@@ -90,19 +94,27 @@ public class ControlEscolar {
 				
 			}});
 		
+		JMenu mnNewMenu_1 = new JMenu("Alumnos");
+		menuBar.add(mnNewMenu_1);
+		
+		JMenu mnNewMenu_2 = new JMenu("Docentes");
+		menuBar.add(mnNewMenu_2);
+		
 		//this.seleccionPerfil(frame);
 		//this.login(frame);
-		//this.registro(frame);
+		//this.registroAlumno(frame);
+		//this.registroDocente(frame);
 		//this.panelAlumnos(frame);
 		//this.panelDocentes(frame);
 		//this.consultarAlumno(frame);
-		//this.logout(frame);
+		this.logout(frame);
 		//this.consultarDocente(frame);
-		this.EditarAlumno(frame);
+		//this.editarAlumno(frame);
 		
 	}
 	
 	public void seleccionPerfil(JFrame frame) {
+		
 		JPanel panel = new JPanel();
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setBackground(Color.white);
@@ -120,7 +132,7 @@ public class ControlEscolar {
 		panel.add(panel_1);
 		
 		ImageIcon imagenAlumno = new ImageIcon(getClass().getResource("/Imagenes/students.png"));
-		JButton botonAlumno = new JButton(imagenAlumno);
+		botonAlumno = new JButton(imagenAlumno);
 		botonAlumno.setBounds(0, 0, 190, 140);
 		botonAlumno.setBackground(Color.white);
 		botonAlumno.setIcon(imagenAlumno);
@@ -151,10 +163,22 @@ public class ControlEscolar {
 		panel.add(panel_2);
 		
 		ImageIcon imagenDocente = new ImageIcon(getClass().getResource("/Imagenes/teacher.png"));
-		JButton botonDocente = new JButton(imagenDocente);
+		botonDocente = new JButton(imagenDocente);
 		botonDocente.setBounds(0, 0, 190, 140);
 		botonDocente.setBackground(Color.white);
 		botonDocente.setIcon(imagenDocente);
+		botonDocente.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				cambiarPantalla();
+				login(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
 		panel_2.add(botonDocente);
 		
 		JLabel lblNewLabel_2 = new JLabel("Docente");
@@ -169,14 +193,13 @@ public class ControlEscolar {
 		
 		JPanel panel = new JPanel();
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setBackground(Color.decode("#F4D462"));
+		panel.setBackground(Color.decode("#3D4CFD5"));
 		panel.setLayout(null);
 		
-		
-		
+
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(50, 103, 500, 500);
-		panel_1.setBackground(Color.decode("#D4CFD5"));
+		panel_1.setBounds(60, 103, 500, 500);
+		panel_1.setBackground(new Color(255, 255, 255));
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -212,18 +235,54 @@ public class ControlEscolar {
 		passwordField.setBounds(50, 196, 400, 20);
 		panel_1.add(passwordField);
 		
-		JLabel lblNewLabel = new JLabel("Inicio de Sesión");
-		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 40));
-		lblNewLabel.setForeground(Color.white);
-		lblNewLabel.setBounds(160, 20,300, 100);
-		panel.add(lblNewLabel);
+		JPanel panel_2 = new JPanel();
+		panel_2.setBounds(560, 103, 290, 500);
+		panel_2.setBackground(Color.decode("#E09923"));
+		panel.add(panel_2);
+		panel_2.setLayout(null);
 		
-		JLabel logo = new JLabel();
-		logo.setSize(300, 300);
-		logo.setLocation(600, 200);
-		ImageIcon locoIcon = new ImageIcon(getClass().getResource("/Imagenes/gatoSalvaje.png"));
-		logo.setIcon(locoIcon);
-		panel.add(logo);
+		JLabel lblNewLabel = new JLabel("Bienvenido al Control Escolar");
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblNewLabel.setBounds(20, 76, 300, 20);
+		panel_2.add(lblNewLabel);
+		
+		JLabel lblNewLabel_20 = new JLabel("¿Aún no tienes cuenta?");
+		lblNewLabel_20.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+		lblNewLabel_20.setBounds(70, 250, 150, 20);
+		panel_2.add(lblNewLabel_20);
+		
+		JButton btnNewButton_2 = new JButton("Registrarse como Alumno");
+		btnNewButton_2.setBounds(20, 301, 250, 21);
+		
+		btnNewButton_2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				cambiarPantalla();
+				registroAlumno(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
+		panel_2.add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Registrarse como docente");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				cambiarPantalla();
+				registroDocente(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}
+			
+		});
+		btnNewButton_3.setBounds(20, 343, 250, 21);
+		panel_2.add(btnNewButton_3);
+		
 		
 		
 			
@@ -231,7 +290,7 @@ public class ControlEscolar {
 	}
 	
 	//Panel de registro
-	public void registro(JFrame frame) {
+	public void registroAlumno(JFrame frame) {
 		JPanel panel = new JPanel();
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setBackground(Color.decode("#EFEFEF"));
@@ -287,10 +346,73 @@ public class ControlEscolar {
 		passwordField_1.setBounds(50, 376, 400, 20);
 		panel_1.add(passwordField_1);
 		
-		JLabel lblNewLabel_5 = new JLabel("Registro");
+		JLabel lblNewLabel_5 = new JLabel("Registro Alumnos");
 		lblNewLabel_5.setFont(new Font("Times New Roman", Font.BOLD, 40));
 		lblNewLabel_5.setForeground(Color.decode("#E47E38"));
-		lblNewLabel_5.setBounds(380, 20,300, 100);
+		lblNewLabel_5.setBounds(300, 20,400, 100);
+		panel.add(lblNewLabel_5);
+	}
+	
+	public void registroDocente(JFrame frame) {
+		JPanel panel = new JPanel();
+		frame.getContentPane().add(panel, BorderLayout.CENTER);
+		panel.setBackground(Color.decode("#EFEFEF"));
+		panel.setLayout(null);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(210, 103, 500, 500);
+		panel_1.setBackground(Color.decode("#D4CFD5"));
+		panel.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("Nombre(s)");
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblNewLabel_1.setBounds(53, 76, 100, 13);
+		panel_1.add(lblNewLabel_1);
+		
+		textField = new JTextField();
+		textField.setBounds(50, 108, 400, 20);
+		panel_1.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("Apellidos");
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblNewLabel_2.setBounds(53, 160, 100, 30);
+		panel_1.add(lblNewLabel_2);
+		
+		
+		JLabel lblNewLabel_3 = new JLabel("Correo");
+		lblNewLabel_3.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblNewLabel_3.setBounds(50, 255, 100, 21);
+		panel_1.add(lblNewLabel_3);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(50, 286, 400, 20);
+		panel_1.add(textField_2);
+		
+		JButton btnNewButton = new JButton("Acceder");
+		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		btnNewButton.setBounds(53, 430, 400, 21);
+		btnNewButton.setBackground(Color.decode("#E47E38"));
+		panel_1.add(btnNewButton);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(50, 196, 400, 20);
+		panel_1.add(textField_1);
+		
+		JLabel lblNewLabel_4 = new JLabel("Contraseña");
+		lblNewLabel_4.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblNewLabel_4.setBounds(53, 341, 100, 13);
+		panel_1.add(lblNewLabel_4);
+		
+		JPasswordField passwordField_1 = new JPasswordField();
+		passwordField_1.setBounds(50, 376, 400, 20);
+		panel_1.add(passwordField_1);
+		
+		JLabel lblNewLabel_5 = new JLabel("Registro Docente");
+		lblNewLabel_5.setFont(new Font("Times New Roman", Font.BOLD, 40));
+		lblNewLabel_5.setForeground(Color.decode("#E47E38"));
+		lblNewLabel_5.setBounds(300, 20,400, 100);
 		panel.add(lblNewLabel_5);
 	}
 	
@@ -300,7 +422,7 @@ public class ControlEscolar {
 		
 		JPanel panel = new JPanel();
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setBackground(Color.decode("#EFEFEF"));
+		panel.setBackground(Color.decode("#F1EEE9"));
 		panel.setLayout(null);
 		
 		/*JMenuBar menuBar = new JMenuBar();
@@ -400,6 +522,20 @@ public class ControlEscolar {
 		botonEditar.setBackground(Color.decode("#EFEFEF"));
 		botonEditar.setBorder(BorderFactory.createLineBorder(Color.black , 2));
 		botonEditar.setBounds(0, 0, 190, 140);
+		
+		botonEditar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				cambiarPantalla();
+				editarAlumno(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
+		
 		panel_4.add(botonEditar);
 		
 		JLabel lblNewLabel_11 = new JLabel("Editar");
@@ -431,14 +567,6 @@ public class ControlEscolar {
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setBackground(Color.decode("#EFEFEF"));
 		panel.setLayout(null);
-		
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 918, 40);
-		menuBar.setBackground(Color.decode("#E47E38"));
-		panel.add(menuBar);
-		
-		JMenu mnNewMenu = new JMenu("Inicio");
-		menuBar.add(mnNewMenu);
 		
 		JLabel lblNewLabel_6 = new JLabel("Hola Docente");
 		lblNewLabel_6.setFont(new Font("Times New Roman", Font.BOLD, 30));
@@ -480,6 +608,18 @@ public class ControlEscolar {
 		botonConsultar.setBackground(Color.decode("#EFEFEF"));
 		botonConsultar.setBorder(BorderFactory.createLineBorder(Color.black , 2));
 		botonConsultar.setBounds(0, 0, 190, 140);
+		botonConsultar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				cambiarPantalla();
+				consultarDocente(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
 		panel_2.add(botonConsultar);
 		
 		JLabel lblNewLabel_9 = new JLabel("Consultar");
@@ -550,15 +690,7 @@ public class ControlEscolar {
 		frame.getContentPane().add(panel12, BorderLayout.CENTER);
 		panel12.setBackground(Color.decode("#EFEFEF"));
 		panel12.setLayout(null);
-		
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 918, 40);
-		menuBar.setBackground(Color.decode("#E47E38"));
-		panel12.add(menuBar);
-		
-		JMenu mnNewMenu = new JMenu("Inicio");
-		menuBar.add(mnNewMenu);
-		
+	
 		JLabel lblNewLabel_8 = new JLabel("Consulta de alumnos");
 		lblNewLabel_8.setFont(new Font("Times New Roman", Font.BOLD, 30));
 		lblNewLabel_8.setBounds(20, 30, 300, 100);
@@ -645,22 +777,14 @@ public class ControlEscolar {
 		panel_44.add(botonDescargar);
 	}
 	
-	public void EditarAlumno(JFrame frame) {
+	public void editarAlumno(JFrame frame) {
 
 
 		JPanel panel12 = new JPanel();
 		frame.getContentPane().add(panel12, BorderLayout.CENTER);
 		panel12.setBackground(Color.decode("#EFEFEF"));
 		panel12.setLayout(null);
-		
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 918, 40);
-		menuBar.setBackground(Color.decode("#E47E38"));
-		panel12.add(menuBar);
-		
-		JMenu mnNewMenu = new JMenu("Inicio");
-		menuBar.add(mnNewMenu);
-		
+	
 		JLabel lblNewLabel_8 = new JLabel("Editar datos de alumno");
 		lblNewLabel_8.setFont(new Font("Times New Roman", Font.BOLD, 30));
 		lblNewLabel_8.setBounds(20, 30, 340, 100);
@@ -762,13 +886,7 @@ public class ControlEscolar {
 		panel13.setBackground(Color.decode("#EFEFEF"));
 		panel13.setLayout(null);
 		
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 918, 40);
-		menuBar.setBackground(Color.decode("#E47E38"));
-		panel13.add(menuBar);
 		
-		JMenu mnNewMenu = new JMenu("Inicio");
-		menuBar.add(mnNewMenu);
 		
 		JLabel lblNewLabel_18 = new JLabel("Consulta de docentes");
 		lblNewLabel_18.setFont(new Font("Times New Roman", Font.BOLD, 30));
@@ -867,23 +985,26 @@ public class ControlEscolar {
 	}
 	
 	public void logout(JFrame frame) {
+		
+		
 		JPanel panel = new JPanel();
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setBackground(Color.white);
 		panel.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(150, 136, 630, 400);
+		panel_1.setBounds(220, 100, 500, 500);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JLabel lblNewLabel_17 = new JLabel("Cerrando Sesión...");
+		JLabel lblNewLabel_17 = new JLabel("¿Estas seguro de que quieres cerrar tu sesión?");
 		lblNewLabel_17.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-		lblNewLabel_17.setBounds(250, 146, 150, 13);
+		lblNewLabel_17.setBounds(110, 250, 300, 13);
 		panel_1.add(lblNewLabel_17);
 		
-		JButton btnNewButton_1 = new JButton("Pulse aquí para volver al inicio");
-		btnNewButton_1.setBounds(190, 277, 250, 21);
+		JButton btnNewButton_1 = new JButton("Salir");
+		btnNewButton_1.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		btnNewButton_1.setBounds(250, 300, 150, 21);
 		btnNewButton_1.addActionListener(new ActionListener() {
 
 			@Override
@@ -897,6 +1018,23 @@ public class ControlEscolar {
 				
 			}});
 		panel_1.add(btnNewButton_1);
+		
+		JButton btnNewButton_1_1 = new JButton("Volver");
+		btnNewButton_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		btnNewButton_1_1.setBounds(90, 301, 150, 21);
+		panel_1.add(btnNewButton_1_1);
+		
+		JLabel lblNewLabel_21 = new JLabel("Vuelve pronto!");
+		lblNewLabel_21.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblNewLabel_21.setBounds(180, 190, 200, 40);
+		panel_1.add(lblNewLabel_21);
+		
+		JLabel logout = new JLabel();
+		logout.setSize(150, 150);
+		logout.setLocation(170, 30);
+		ImageIcon imagenLogout = new ImageIcon("/Imagenes/logout1.png");
+		logout.setIcon(imagenLogout);
+		panel_1.add(logout);
 	}
 	
 	public void cambiarPantalla() {
