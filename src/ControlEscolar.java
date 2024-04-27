@@ -2,16 +2,23 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Insets;
+import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.border.Border;
 import javax.swing.JCheckBox;
 import javax.swing.BorderFactory;
@@ -86,10 +93,12 @@ public class ControlEscolar {
 		//this.seleccionPerfil(frame);
 		//this.login(frame);
 		//this.registro(frame);
-		this.panelAlumnos(frame);
+		//this.panelAlumnos(frame);
 		//this.panelDocentes(frame);
 		//this.consultarAlumno(frame);
 		//this.logout(frame);
+		//this.consultarDocente(frame);
+		this.EditarAlumno(frame);
 		
 	}
 	
@@ -318,9 +327,11 @@ public class ControlEscolar {
 		panel_1.setLayout(null);
 		panel.add(panel_1);
 		
-		ImageIcon imagenDescargar = new ImageIcon(getClass().getResource("/Imagenes/descarga.png"));
+		ImageIcon imagenDescargar = new ImageIcon(getClass().getResource("/Imagenes/download_10696784.png"));
 		JButton botonDescargar = new JButton(imagenDescargar);
 		botonDescargar.setBounds(0, 0, 190, 140);
+		botonDescargar.setBackground(Color.decode("#EFEFEF"));
+		botonDescargar.setBorder(BorderFactory.createLineBorder(Color.black , 2));
 		botonDescargar.setIcon(imagenDescargar);
 		panel_1.add(botonDescargar);
 		
@@ -335,7 +346,10 @@ public class ControlEscolar {
 		panel_2.setLayout(null);
 		panel.add(panel_2);
 		
-		JButton botonConsultar = new JButton();
+		ImageIcon imagenConsultar = new ImageIcon(getClass().getResource("/Imagenes/IconoConsultar.png"));
+		JButton botonConsultar = new JButton(imagenConsultar);
+		botonConsultar.setBackground(Color.decode("#EFEFEF"));
+		botonConsultar.setBorder(BorderFactory.createLineBorder(Color.black , 2));
 		botonConsultar.setBounds(0, 0, 190, 140);
 		panel_2.add(botonConsultar);
 		botonConsultar.addActionListener(new ActionListener() {
@@ -363,7 +377,10 @@ public class ControlEscolar {
 		panel_3.setLayout(null);
 		panel.add(panel_3);
 		
-		JButton botonCrear = new JButton();
+		ImageIcon imagenCrear = new ImageIcon(getClass().getResource("/Imagenes/IconoCrear.png"));
+		JButton botonCrear = new JButton(imagenCrear);
+		botonCrear.setBackground(Color.decode("#EFEFEF"));
+		botonCrear.setBorder(BorderFactory.createLineBorder(Color.black , 2));
 		botonCrear.setBounds(0, 0, 190, 140);
 		panel_3.add(botonCrear);
 		
@@ -378,7 +395,10 @@ public class ControlEscolar {
 		panel_4.setBounds(208, 437, 190, 188);
 		panel.add(panel_4);
 		
-		JButton botonEditar = new JButton();
+		ImageIcon imagenEditar = new ImageIcon(getClass().getResource("/Imagenes/IconoEditar.png"));
+		JButton botonEditar = new JButton(imagenEditar);
+		botonEditar.setBackground(Color.decode("#EFEFEF"));
+		botonEditar.setBorder(BorderFactory.createLineBorder(Color.black , 2));
 		botonEditar.setBounds(0, 0, 190, 140);
 		panel_4.add(botonEditar);
 		
@@ -395,6 +415,8 @@ public class ControlEscolar {
 		
 		ImageIcon imagenEliminar = new ImageIcon(getClass().getResource("/Imagenes/BorrarIcono.png"));
 		JButton botonEliminar = new JButton(imagenEliminar);
+		botonEliminar.setBackground(Color.decode("#EFEFEF"));
+		botonEliminar.setBorder(BorderFactory.createLineBorder(Color.black , 2));
 		botonEliminar.setBounds(0, 0, 190, 140);
 		panel_5.add(botonEliminar);
 		
@@ -434,9 +456,11 @@ public class ControlEscolar {
 		panel_1.setLayout(null);
 		panel.add(panel_1);
 		
-		ImageIcon imagenDescargar = new ImageIcon("descarga.png");
-		JButton botonDescargar = new JButton();
+		ImageIcon imagenDescargar = new ImageIcon(getClass().getResource("/Imagenes/download_10696784.png"));
+		JButton botonDescargar = new JButton(imagenDescargar);
 		botonDescargar.setBounds(0, 0, 190, 140);
+		botonDescargar.setBackground(Color.decode("#EFEFEF"));
+		botonDescargar.setBorder(BorderFactory.createLineBorder(Color.black , 2));
 		botonDescargar.setIcon(imagenDescargar);
 		panel_1.add(botonDescargar);
 		
@@ -451,7 +475,10 @@ public class ControlEscolar {
 		panel_2.setLayout(null);
 		panel.add(panel_2);
 		
-		JButton botonConsultar = new JButton();
+		ImageIcon imagenConsultar = new ImageIcon(getClass().getResource("/Imagenes/IconoConsultar.png"));
+		JButton botonConsultar = new JButton(imagenConsultar);
+		botonConsultar.setBackground(Color.decode("#EFEFEF"));
+		botonConsultar.setBorder(BorderFactory.createLineBorder(Color.black , 2));
 		botonConsultar.setBounds(0, 0, 190, 140);
 		panel_2.add(botonConsultar);
 		
@@ -467,7 +494,10 @@ public class ControlEscolar {
 		panel_3.setLayout(null);
 		panel.add(panel_3);
 		
-		JButton botonCrear = new JButton();
+		ImageIcon imagenCrear = new ImageIcon(getClass().getResource("/Imagenes/IconoCrear.png"));
+		JButton botonCrear = new JButton(imagenCrear);
+		botonCrear.setBackground(Color.decode("#EFEFEF"));
+		botonCrear.setBorder(BorderFactory.createLineBorder(Color.black , 2));
 		botonCrear.setBounds(0, 0, 190, 140);
 		panel_3.add(botonCrear);
 		
@@ -482,7 +512,10 @@ public class ControlEscolar {
 		panel_4.setBounds(208, 437, 190, 188);
 		panel.add(panel_4);
 		
-		JButton botonEditar = new JButton();
+		ImageIcon imagenEditar = new ImageIcon(getClass().getResource("/Imagenes/IconoEditar.png"));
+		JButton botonEditar = new JButton(imagenEditar);
+		botonEditar.setBackground(Color.decode("#EFEFEF"));
+		botonEditar.setBorder(BorderFactory.createLineBorder(Color.black , 2));
 		botonEditar.setBounds(0, 0, 190, 140);
 		panel_4.add(botonEditar);
 		
@@ -497,7 +530,10 @@ public class ControlEscolar {
 		panel_5.setBounds(498, 437, 190, 188);
 		panel.add(panel_5);
 		
-		JButton botonEliminar = new JButton();
+		ImageIcon imagenEliminar = new ImageIcon(getClass().getResource("/Imagenes/BorrarIcono.png"));
+		JButton botonEliminar = new JButton(imagenEliminar);
+		botonEliminar.setBackground(Color.decode("#EFEFEF"));
+		botonEliminar.setBorder(BorderFactory.createLineBorder(Color.black , 2));
 		botonEliminar.setBounds(0, 0, 190, 140);
 		panel_5.add(botonEliminar);
 		
@@ -609,6 +645,227 @@ public class ControlEscolar {
 		panel_44.add(botonDescargar);
 	}
 	
+	public void EditarAlumno(JFrame frame) {
+
+
+		JPanel panel12 = new JPanel();
+		frame.getContentPane().add(panel12, BorderLayout.CENTER);
+		panel12.setBackground(Color.decode("#EFEFEF"));
+		panel12.setLayout(null);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, 0, 918, 40);
+		menuBar.setBackground(Color.decode("#E47E38"));
+		panel12.add(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("Inicio");
+		menuBar.add(mnNewMenu);
+		
+		JLabel lblNewLabel_8 = new JLabel("Editar datos de alumno");
+		lblNewLabel_8.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		lblNewLabel_8.setBounds(20, 30, 340, 100);
+		panel12.add(lblNewLabel_8);
+		
+		JPanel panel_44 = new JPanel();
+		panel_44.setLayout(null);
+		panel_44.setBorder(BorderFactory.createLineBorder(Color.black , 2));
+		panel_44.setBounds(20, 130, 880, 400);
+		panel12.add(panel_44);
+		
+		JLabel lblNewLabel_9 = new JLabel("Apellido paterno");
+		lblNewLabel_9.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_9.setBounds(70, 30, 170, 40);
+		panel_44.add(lblNewLabel_9);
+		
+		textField = new JTextField();
+		textField.setBounds(250, 40, 250, 25);
+		panel_44.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_10 = new JLabel("Apellido materno");
+		lblNewLabel_10.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_10.setBounds(63, 90, 190, 40);
+		panel_44.add(lblNewLabel_10);
+		
+		JTextField textField4 = new JTextField();
+		textField4.setBounds(250, 100, 250, 25);
+		panel_44.add(textField4);
+		textField4.setColumns(10);
+		
+		JLabel lblNewLabel_15 = new JLabel("Nombre");
+		lblNewLabel_15.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_15.setBounds(155, 150, 190, 40);
+		panel_44.add(lblNewLabel_15);
+		
+		JTextField textField8 = new JTextField();
+		textField8.setBounds(250, 160, 250, 25);
+		panel_44.add(textField8);
+		textField8.setColumns(10);
+		
+		JLabel lblNewLabel_11 = new JLabel("Fecha de nacimiento");
+		lblNewLabel_11.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_11.setBounds(30, 210, 220, 40);
+		panel_44.add(lblNewLabel_11);
+		
+		JTextField textField5 = new JTextField();
+		textField5.setBounds(250, 220, 250, 25);
+		panel_44.add(textField5);
+		textField5.setColumns(10);
+		
+		JLabel lblNewLabel_12 = new JLabel("Correo electronico");
+		lblNewLabel_12.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_12.setBounds(50, 270, 200, 40);
+		panel_44.add(lblNewLabel_12);
+		
+		JTextField textField6 = new JTextField();
+		textField6.setBounds(250, 280, 250, 25);
+		panel_44.add(textField6);
+		textField6.setColumns(10);
+		
+		JLabel lblNewLabel_13 = new JLabel("Telefono");
+		lblNewLabel_13.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_13.setBounds(145, 330, 147, 40);
+		panel_44.add(lblNewLabel_13);
+		
+		JTextField textField7 = new JTextField();
+		textField7.setBounds(250, 340, 250, 25);
+		panel_44.add(textField7);
+		textField7.setColumns(10);
+		
+		ImageIcon camara = new ImageIcon(getClass().getResource("/Imagenes/CamaraIcono.png"));
+		JLabel lblNewLabel_14 = new JLabel("Fotografia del alumno");
+		lblNewLabel_14.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lblNewLabel_14.setIcon(camara);
+		lblNewLabel_14.setBounds(575, 30, 270, 40);
+		panel_44.add(lblNewLabel_14);
+		
+		ImageIcon imagenUsuario = new ImageIcon(getClass().getResource("/Imagenes/IconoFoto.png"));
+		JButton botonDescargar = new JButton(imagenUsuario);
+		botonDescargar.setOpaque(true);
+		botonDescargar.setBackground(Color.white);
+		botonDescargar.setBounds(580, 100, 256, 256);
+		panel_44.add(botonDescargar);
+		
+		ImageIcon imagenIconoBotonEditar = new ImageIcon(getClass().getResource("/Imagenes/IconoBotonEditar.png"));
+		RoundedButton roundedButton = new RoundedButton(imagenIconoBotonEditar ,"Editar datos", 45, Color.decode("#FF5733"));
+		roundedButton.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		roundedButton.setBounds(340, 600, 250, 50);
+		
+		panel12.add(roundedButton);
+	}
+	
+	public void consultarDocente(JFrame frame) {
+
+
+		JPanel panel13 = new JPanel();
+		frame.getContentPane().add(panel13, BorderLayout.CENTER);
+		panel13.setBackground(Color.decode("#EFEFEF"));
+		panel13.setLayout(null);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, 0, 918, 40);
+		menuBar.setBackground(Color.decode("#E47E38"));
+		panel13.add(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("Inicio");
+		menuBar.add(mnNewMenu);
+		
+		JLabel lblNewLabel_18 = new JLabel("Consulta de docentes");
+		lblNewLabel_18.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		lblNewLabel_18.setBounds(20, 30, 300, 100);
+		panel13.add(lblNewLabel_18);
+		
+		JPanel panel_45 = new JPanel();
+		panel_45.setLayout(null);
+		panel_45.setBorder(BorderFactory.createLineBorder(Color.black , 2));
+		panel_45.setBounds(20, 130, 880, 460);
+		panel13.add(panel_45);
+		
+		JLabel lblNewLabel_19 = new JLabel("Apellido paterno");
+		lblNewLabel_19.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_19.setBounds(70, 30, 170, 40);
+		panel_45.add(lblNewLabel_19);
+		
+		textField = new JTextField();
+		textField.setBounds(250, 40, 250, 25);
+		panel_45.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_11 = new JLabel("Apellido materno");
+		lblNewLabel_11.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_11.setBounds(63, 90, 190, 40);
+		panel_45.add(lblNewLabel_11);
+		
+		JTextField textField14 = new JTextField();
+		textField14.setBounds(250, 100, 250, 25);
+		panel_45.add(textField14);
+		textField14.setColumns(10);
+		
+		JLabel lblNewLabel_16 = new JLabel("Nombre");
+		lblNewLabel_16.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_16.setBounds(155, 150, 190, 40);
+		panel_45.add(lblNewLabel_16);
+		
+		JTextField textField8 = new JTextField();
+		textField8.setBounds(250, 160, 250, 25);
+		panel_45.add(textField8);
+		textField8.setColumns(10);
+		
+		JLabel lblNewLabel_17 = new JLabel("Fecha de nacimiento");
+		lblNewLabel_17.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_17.setBounds(30, 210, 220, 40);
+		panel_45.add(lblNewLabel_17);
+		
+		JTextField textField9 = new JTextField();
+		textField9.setBounds(250, 220, 250, 25);
+		panel_45.add(textField9);
+		textField9.setColumns(10);
+		
+		JLabel lblNewLabel_12 = new JLabel("Correo electronico");
+		lblNewLabel_12.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_12.setBounds(50, 270, 200, 40);
+		panel_45.add(lblNewLabel_12);
+		
+		JTextField textField6 = new JTextField();
+		textField6.setBounds(250, 280, 250, 25);
+		panel_45.add(textField6);
+		textField6.setColumns(10);
+		
+		JLabel lblNewLabel_13 = new JLabel("Telefono");
+		lblNewLabel_13.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_13.setBounds(145, 330, 147, 40);
+		panel_45.add(lblNewLabel_13);
+		
+		JTextField textField7 = new JTextField();
+		textField7.setBounds(250, 340, 250, 25);
+		panel_45.add(textField7);
+		textField7.setColumns(10);
+		
+		JLabel lblNewLabel_15 = new JLabel("Grado de estudios");
+		lblNewLabel_15.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_15.setBounds(55, 390, 197, 40);
+		panel_45.add(lblNewLabel_15);
+		
+		JTextField textField10 = new JTextField();
+		textField10.setBounds(250, 400, 250, 25);
+		panel_45.add(textField10);
+		textField10.setColumns(10);
+		
+		ImageIcon camara = new ImageIcon(getClass().getResource("/Imagenes/CamaraIcono.png"));
+		JLabel lblNewLabel_14 = new JLabel("Fotografia del docente");
+		lblNewLabel_14.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lblNewLabel_14.setIcon(camara);
+		lblNewLabel_14.setBounds(575, 30, 270, 40);
+		panel_45.add(lblNewLabel_14);
+		
+		ImageIcon imagenUsuario = new ImageIcon(getClass().getResource("/Imagenes/IconoFoto.png"));
+		JButton botonDescargar = new JButton(imagenUsuario);
+		botonDescargar.setOpaque(true);
+		botonDescargar.setBackground(Color.white);
+		botonDescargar.setBounds(580, 100, 256, 256);
+		panel_45.add(botonDescargar);
+	}
+	
 	public void logout(JFrame frame) {
 		JPanel panel = new JPanel();
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
@@ -655,4 +912,74 @@ public class ControlEscolar {
 			}
 		}
 	}
+	
+	
+	
+}
+
+
+class RoundedButton extends JButton {
+
+    private int radius;
+    private Color borderColor;
+
+    public RoundedButton(ImageIcon icon, String text, int radius, Color borderColor) {
+        super(text);
+
+        setIcon(icon);
+
+        this.radius = radius;
+
+        this.borderColor = borderColor;
+
+        setOpaque(false);
+        setContentAreaFilled(false);
+        setBorder(new RoundedBorder(radius, borderColor));
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setRenderingHints(new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON));
+        
+        if (getModel().isPressed()) {
+        	 g2.setColor(Color.decode("#b7cfe5")); 
+        } else if (getModel().isRollover()) {
+        	g2.setColor(Color.WHITE);
+        } else {
+            g2.setColor(getBackground());
+        }
+        
+        g2.fillRoundRect(0, 0, getWidth(), getHeight(), radius, radius);
+        super.paintComponent(g);
+    }
+
+    static class RoundedBorder implements Border {
+        private int radius;
+        private Color borderColor;
+
+        public RoundedBorder(int radius, Color borderColor) {
+            this.radius = radius;
+            this.borderColor = borderColor;
+        }
+
+        @Override
+        public Insets getBorderInsets(Component c) {
+            return new Insets(radius, radius, radius, radius);
+        }
+
+        @Override
+        public boolean isBorderOpaque() {
+            return false;
+        }
+
+        @Override
+        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+            Graphics2D g2 = (Graphics2D) g;
+            g2.setColor(borderColor);
+            g2.setStroke(new BasicStroke(3.0f));
+            g2.setRenderingHints(new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON));
+            g2.drawRoundRect(x + 1, y + 1, width - 3, height - 3, radius, radius);
+        }
+    }
 }
