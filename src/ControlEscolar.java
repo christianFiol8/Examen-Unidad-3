@@ -16,6 +16,7 @@ import java.awt.Insets;
 import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 import javax.swing.JTextField;
 import javax.swing.UIManager;
@@ -28,6 +29,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 public class ControlEscolar {
 
@@ -859,8 +861,16 @@ public class ControlEscolar {
 		lblNewLabel_9.setBounds(70, 30, 170, 40);
 		panel_44.add(lblNewLabel_9);
 		
-		textField = new JTextField();
+		JTextField textField = new JTextField();
 		textField.setBounds(250, 40, 250, 25);
+		textField.addKeyListener(new java.awt.event.KeyAdapter() {
+		    @Override
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        // Llama al método para limitar la entrada a números
+		        limitarEntradaALetras(evt, textField, 20);
+		    }
+
+		});
 		panel_44.add(textField);
 		textField.setColumns(10);
 		
@@ -871,6 +881,14 @@ public class ControlEscolar {
 		
 		JTextField textField4 = new JTextField();
 		textField4.setBounds(250, 100, 250, 25);
+		textField4.addKeyListener(new java.awt.event.KeyAdapter() {
+		    @Override
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        // Llama al método para limitar la entrada a números
+		        limitarEntradaALetras(evt, textField4, 20);
+		    }
+
+		});
 		panel_44.add(textField4);
 		textField4.setColumns(10);
 		
@@ -881,6 +899,14 @@ public class ControlEscolar {
 		
 		JTextField textField8 = new JTextField();
 		textField8.setBounds(250, 160, 250, 25);
+		textField8.addKeyListener(new java.awt.event.KeyAdapter() {
+		    @Override
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        // Llama al método para limitar la entrada a números
+		        limitarEntradaALetras(evt, textField8, 30);
+		    }
+
+		});
 		panel_44.add(textField8);
 		textField8.setColumns(10);
 		
@@ -891,6 +917,14 @@ public class ControlEscolar {
 		
 		JTextField textField5 = new JTextField();
 		textField5.setBounds(250, 220, 250, 25);
+		textField5.addKeyListener(new java.awt.event.KeyAdapter() {
+		    @Override
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        // Llama al método para limitar la entrada a números
+		        limitarEntradaCaracteres(evt, textField5, 30);
+		    }
+
+		});
 		panel_44.add(textField5);
 		textField5.setColumns(10);
 		
@@ -901,16 +935,33 @@ public class ControlEscolar {
 		
 		JTextField textField6 = new JTextField();
 		textField6.setBounds(250, 280, 250, 25);
+		textField6.addKeyListener(new java.awt.event.KeyAdapter() {
+		    @Override
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        // Llama al método para limitar la entrada a números
+		        limitarEntradaCaracteres(evt, textField6, 50);
+		    }
+
+		});
 		panel_44.add(textField6);
 		textField6.setColumns(10);
 		
 		JLabel lblNewLabel_13 = new JLabel("Telefono");
 		lblNewLabel_13.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		lblNewLabel_13.setBounds(145, 330, 147, 40);
+		
 		panel_44.add(lblNewLabel_13);
 		
 		JTextField textField7 = new JTextField();
 		textField7.setBounds(250, 340, 250, 25);
+		textField7.addKeyListener(new java.awt.event.KeyAdapter() {
+		    @Override
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        // Llama al método para limitar la entrada a números
+		        limitarEntradaANumeros(evt, textField7, 10);
+		    }
+
+		});
 		panel_44.add(textField7);
 		textField7.setColumns(10);
 		
@@ -1565,17 +1616,25 @@ public class ControlEscolar {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				
-				cambiarPantalla();
-				seleccionPerfil(frame);
-				frame.revalidate();
-				frame.repaint();
-				
+				System.exit(0);
 			}});
 		panel_1.add(btnNewButton_1);
 		
 		JButton btnNewButton_1_1 = new JButton("Volver");
 		btnNewButton_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 15));
 		btnNewButton_1_1.setBounds(90, 301, 150, 21);
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				cambiarPantalla();
+				seleccionPerfil(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
 		panel_1.add(btnNewButton_1_1);
 		
 		JLabel lblNewLabel_21 = new JLabel("Vuelve pronto!");
@@ -1603,6 +1662,51 @@ public class ControlEscolar {
 				
 			}
 		}
+	}
+	
+	private void limitarEntradaANumeros(KeyEvent evt, JTextField textField, int longitud) {
+		// TODO Auto-generated method stub
+		char key = evt.getKeyChar();
+
+	    boolean esNumero = Character.isDigit(key);
+	    
+	    boolean esBorrarOEnviar = key == KeyEvent.VK_BACK_SPACE || key == KeyEvent.VK_ENTER;
+
+	    if (!esNumero && !esBorrarOEnviar) {
+	        evt.consume();
+	        
+	        JOptionPane.showMessageDialog(null, "Solo números", "Advertencia", JOptionPane.WARNING_MESSAGE);
+	    }
+
+	    if (textField.getText().length() >= longitud) {
+	        evt.consume();
+	    }
+	}
+	
+	private void limitarEntradaALetras(KeyEvent evt, JTextField textField, int longitud) {
+		int key = evt.getKeyChar();
+
+	    boolean mayusculas = key >= 65 && key <= 90;
+	    boolean minusculas = key >= 97 && key <= 122;
+	    boolean espacio = key == 32;
+	    boolean esBorrarOEnviar = key == KeyEvent.VK_BACK_SPACE || key == KeyEvent.VK_ENTER;
+	            
+	     if (!(minusculas || mayusculas || espacio|| esBorrarOEnviar))
+	    {
+	        evt.consume();
+	        JOptionPane.showMessageDialog(null, "Solo letras", "Advertencia", JOptionPane.WARNING_MESSAGE);
+	    }
+	     
+	     if (textField.getText().length() >= longitud) {
+		        evt.consume();
+		    }
+	}
+	
+	private void limitarEntradaCaracteres(KeyEvent evt, JTextField textField, int longitudMaxima) {
+	    
+	    if (textField.getText().length() >= longitudMaxima) {
+	        evt.consume();
+	    }
 	}
 	
 	
