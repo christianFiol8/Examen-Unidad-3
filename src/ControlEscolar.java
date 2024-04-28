@@ -896,6 +896,7 @@ public class ControlEscolar {
 		JLabel lblNewLabel_11 = new JLabel("Editar");
 		lblNewLabel_11.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblNewLabel_11.setBounds(70, 155, 45, 13);
+		
 		panel_4.add(lblNewLabel_11);
 		
 		JPanel panel_5 = new JPanel();
@@ -1070,7 +1071,6 @@ public class ControlEscolar {
 		textField.addKeyListener(new java.awt.event.KeyAdapter() {
 		    @Override
 		    public void keyTyped(java.awt.event.KeyEvent evt) {
-		        // Llama al método para limitar la entrada a números
 		        limitarEntradaALetras(evt, textField, 20);
 		    }
 
@@ -1088,7 +1088,6 @@ public class ControlEscolar {
 		textField4.addKeyListener(new java.awt.event.KeyAdapter() {
 		    @Override
 		    public void keyTyped(java.awt.event.KeyEvent evt) {
-		        // Llama al método para limitar la entrada a números
 		        limitarEntradaALetras(evt, textField4, 20);
 		    }
 
@@ -1106,7 +1105,6 @@ public class ControlEscolar {
 		textField8.addKeyListener(new java.awt.event.KeyAdapter() {
 		    @Override
 		    public void keyTyped(java.awt.event.KeyEvent evt) {
-		        // Llama al método para limitar la entrada a números
 		        limitarEntradaALetras(evt, textField8, 30);
 		    }
 
@@ -1124,7 +1122,6 @@ public class ControlEscolar {
 		textField5.addKeyListener(new java.awt.event.KeyAdapter() {
 		    @Override
 		    public void keyTyped(java.awt.event.KeyEvent evt) {
-		        // Llama al método para limitar la entrada a números
 		        limitarEntradaCaracteres(evt, textField5, 30);
 		    }
 
@@ -1142,7 +1139,6 @@ public class ControlEscolar {
 		textField6.addKeyListener(new java.awt.event.KeyAdapter() {
 		    @Override
 		    public void keyTyped(java.awt.event.KeyEvent evt) {
-		        // Llama al método para limitar la entrada a números
 		        limitarEntradaCaracteres(evt, textField6, 50);
 		    }
 
@@ -1161,7 +1157,6 @@ public class ControlEscolar {
 		textField7.addKeyListener(new java.awt.event.KeyAdapter() {
 		    @Override
 		    public void keyTyped(java.awt.event.KeyEvent evt) {
-		        // Llama al método para limitar la entrada a números
 		        limitarEntradaANumeros(evt, textField7, 10);
 		    }
 
@@ -1449,7 +1444,6 @@ public class ControlEscolar {
 		
 		
 	}
-	
 	
 	public void descargarAlumno(JFrame frame) {
 
@@ -1950,6 +1944,13 @@ public class ControlEscolar {
 		
 		textField = new JTextField();
 		textField.setBounds(250, 40, 250, 25);
+		textField.addKeyListener(new java.awt.event.KeyAdapter() {
+		    @Override
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        limitarEntradaALetras(evt, textField, 20);
+		    }
+
+		});
 		panel_45.add(textField);
 		textField.setColumns(10);
 		
@@ -1960,6 +1961,13 @@ public class ControlEscolar {
 		
 		JTextField textField14 = new JTextField();
 		textField14.setBounds(250, 100, 250, 25);
+		textField14.addKeyListener(new java.awt.event.KeyAdapter() {
+		    @Override
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        limitarEntradaALetras(evt, textField14, 20);
+		    }
+
+		});
 		panel_45.add(textField14);
 		textField14.setColumns(10);
 		
@@ -1970,6 +1978,13 @@ public class ControlEscolar {
 		
 		JTextField textField8 = new JTextField();
 		textField8.setBounds(250, 160, 250, 25);
+		textField8.addKeyListener(new java.awt.event.KeyAdapter() {
+		    @Override
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        limitarEntradaALetras(evt, textField8, 30);
+		    }
+
+		});
 		panel_45.add(textField8);
 		textField8.setColumns(10);
 		
@@ -1980,6 +1995,13 @@ public class ControlEscolar {
 		
 		JTextField textField9 = new JTextField();
 		textField9.setBounds(250, 220, 250, 25);
+		textField9.addKeyListener(new java.awt.event.KeyAdapter() {
+		    @Override
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        limitarEntradaCaracteres(evt, textField9, 30);
+		    }
+
+		});
 		panel_45.add(textField9);
 		textField9.setColumns(10);
 		
@@ -1990,6 +2012,13 @@ public class ControlEscolar {
 		
 		JTextField textField6 = new JTextField();
 		textField6.setBounds(250, 280, 250, 25);
+		textField6.addKeyListener(new java.awt.event.KeyAdapter() {
+		    @Override
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        limitarEntradaCaracteres(evt, textField6, 50);
+		    }
+
+		});
 		panel_45.add(textField6);
 		textField6.setColumns(10);
 		
@@ -2000,6 +2029,13 @@ public class ControlEscolar {
 		
 		JTextField textField7 = new JTextField();
 		textField7.setBounds(250, 340, 250, 25);
+		textField7.addKeyListener(new java.awt.event.KeyAdapter() {
+		    @Override
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        limitarEntradaANumeros(evt, textField7, 10);
+		    }
+
+		});
 		panel_45.add(textField7);
 		textField7.setColumns(10);
 		
@@ -2010,6 +2046,13 @@ public class ControlEscolar {
 		
 		JTextField textField10 = new JTextField();
 		textField10.setBounds(250, 400, 250, 25);
+		textField10.addKeyListener(new java.awt.event.KeyAdapter() {
+		    @Override
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        limitarEntradaALetras(evt, textField10, 25);
+		    }
+
+		});
 		panel_45.add(textField10);
 		textField10.setColumns(10);
 		
@@ -2050,8 +2093,10 @@ public class ControlEscolar {
 				
 			}});
 		panel13.add(roundedButton2);
+		
 	}
 	
+		
 	public void consultarDocente(JFrame frame) {
 
 
@@ -2062,9 +2107,9 @@ public class ControlEscolar {
 		
 		
 		
-		JLabel lblNewLabel_18 = new JLabel("Consulta de docentes");
+		JLabel lblNewLabel_18 = new JLabel("Consulta de datos de docente");
 		lblNewLabel_18.setFont(new Font("Times New Roman", Font.BOLD, 30));
-		lblNewLabel_18.setBounds(20, 30, 300, 100);
+		lblNewLabel_18.setBounds(20, 30, 390, 100);
 		panel13.add(lblNewLabel_18);
 		
 		JPanel panel_45 = new JPanel();
@@ -2160,7 +2205,7 @@ public class ControlEscolar {
 		ImageIcon imagenIconoBotonVolver = new ImageIcon(getClass().getResource("/Imagenes/IconoVolver.png"));
 		RoundedButton roundedButton2 = new RoundedButton(imagenIconoBotonVolver ,"Regresar", 45, Color.decode("#FF5733"));
 		roundedButton2.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		roundedButton2.setBounds(335, 620, 250, 50);
+		roundedButton2.setBounds(335, 630, 250, 50);
 		roundedButton2.addActionListener(new ActionListener() {
 
 			@Override
