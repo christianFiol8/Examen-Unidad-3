@@ -106,8 +106,8 @@ public class ControlEscolar {
 		//this.login(frame);
 		//this.registroAlumno(frame);
 		//this.registroDocente(frame);
-		this.panelAlumnos(frame);
-		//this.panelDocentes(frame);
+		//this.panelAlumnos(frame);
+		this.panelDocentes(frame);
 		//this.consultarAlumno(frame);
 		//this.logout(frame);
 		//this.consultarDocente(frame);
@@ -632,6 +632,18 @@ public class ControlEscolar {
 		botonDescargar.setBackground(Color.decode("#EFEFEF"));
 		botonDescargar.setBorder(BorderFactory.createLineBorder(Color.black , 2));
 		botonDescargar.setIcon(imagenDescargar);
+		botonDescargar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				cambiarPantalla();
+				descargarDocente(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
 		panel_1.add(botonDescargar);
 		
 		JLabel lblNewLabel_8 = new JLabel("Descargar Información");
@@ -681,6 +693,18 @@ public class ControlEscolar {
 		botonCrear.setBackground(Color.decode("#EFEFEF"));
 		botonCrear.setBorder(BorderFactory.createLineBorder(Color.black , 2));
 		botonCrear.setBounds(0, 0, 190, 140);
+		botonCrear.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				cambiarPantalla();
+				crearDocente(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
 		panel_3.add(botonCrear);
 		
 		JLabel lblNewLabel_10 = new JLabel("Crear");
@@ -699,11 +723,24 @@ public class ControlEscolar {
 		botonEditar.setBackground(Color.decode("#EFEFEF"));
 		botonEditar.setBorder(BorderFactory.createLineBorder(Color.black , 2));
 		botonEditar.setBounds(0, 0, 190, 140);
+		botonEditar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				cambiarPantalla();
+				editarDocente(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
 		panel_4.add(botonEditar);
 		
 		JLabel lblNewLabel_11 = new JLabel("Editar");
 		lblNewLabel_11.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblNewLabel_11.setBounds(70, 155, 45, 13);
+		
 		panel_4.add(lblNewLabel_11);
 		
 		JPanel panel_5 = new JPanel();
@@ -717,6 +754,18 @@ public class ControlEscolar {
 		botonEliminar.setBackground(Color.decode("#EFEFEF"));
 		botonEliminar.setBorder(BorderFactory.createLineBorder(Color.black , 2));
 		botonEliminar.setBounds(0, 0, 190, 140);
+		botonEliminar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				cambiarPantalla();
+				eliminarDocente(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
 		panel_5.add(botonEliminar);
 		
 		JLabel lblNewLabel_12 = new JLabel("Eliminar");
@@ -866,7 +915,6 @@ public class ControlEscolar {
 		textField.addKeyListener(new java.awt.event.KeyAdapter() {
 		    @Override
 		    public void keyTyped(java.awt.event.KeyEvent evt) {
-		        // Llama al método para limitar la entrada a números
 		        limitarEntradaALetras(evt, textField, 20);
 		    }
 
@@ -884,7 +932,6 @@ public class ControlEscolar {
 		textField4.addKeyListener(new java.awt.event.KeyAdapter() {
 		    @Override
 		    public void keyTyped(java.awt.event.KeyEvent evt) {
-		        // Llama al método para limitar la entrada a números
 		        limitarEntradaALetras(evt, textField4, 20);
 		    }
 
@@ -902,7 +949,6 @@ public class ControlEscolar {
 		textField8.addKeyListener(new java.awt.event.KeyAdapter() {
 		    @Override
 		    public void keyTyped(java.awt.event.KeyEvent evt) {
-		        // Llama al método para limitar la entrada a números
 		        limitarEntradaALetras(evt, textField8, 30);
 		    }
 
@@ -920,7 +966,6 @@ public class ControlEscolar {
 		textField5.addKeyListener(new java.awt.event.KeyAdapter() {
 		    @Override
 		    public void keyTyped(java.awt.event.KeyEvent evt) {
-		        // Llama al método para limitar la entrada a números
 		        limitarEntradaCaracteres(evt, textField5, 30);
 		    }
 
@@ -938,7 +983,6 @@ public class ControlEscolar {
 		textField6.addKeyListener(new java.awt.event.KeyAdapter() {
 		    @Override
 		    public void keyTyped(java.awt.event.KeyEvent evt) {
-		        // Llama al método para limitar la entrada a números
 		        limitarEntradaCaracteres(evt, textField6, 50);
 		    }
 
@@ -957,7 +1001,6 @@ public class ControlEscolar {
 		textField7.addKeyListener(new java.awt.event.KeyAdapter() {
 		    @Override
 		    public void keyTyped(java.awt.event.KeyEvent evt) {
-		        // Llama al método para limitar la entrada a números
 		        limitarEntradaANumeros(evt, textField7, 10);
 		    }
 
@@ -1246,7 +1289,6 @@ public class ControlEscolar {
 		
 	}
 	
-	
 	public void descargarAlumno(JFrame frame) {
 
 
@@ -1393,6 +1435,13 @@ public class ControlEscolar {
 		
 		textField = new JTextField();
 		textField.setBounds(250, 40, 250, 25);
+		textField.addKeyListener(new java.awt.event.KeyAdapter() {
+		    @Override
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        limitarEntradaALetras(evt, textField, 20);
+		    }
+
+		});
 		panel_45.add(textField);
 		textField.setColumns(10);
 		
@@ -1403,6 +1452,13 @@ public class ControlEscolar {
 		
 		JTextField textField14 = new JTextField();
 		textField14.setBounds(250, 100, 250, 25);
+		textField14.addKeyListener(new java.awt.event.KeyAdapter() {
+		    @Override
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        limitarEntradaALetras(evt, textField14, 20);
+		    }
+
+		});
 		panel_45.add(textField14);
 		textField14.setColumns(10);
 		
@@ -1413,6 +1469,13 @@ public class ControlEscolar {
 		
 		JTextField textField8 = new JTextField();
 		textField8.setBounds(250, 160, 250, 25);
+		textField8.addKeyListener(new java.awt.event.KeyAdapter() {
+		    @Override
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        limitarEntradaALetras(evt, textField8, 30);
+		    }
+
+		});
 		panel_45.add(textField8);
 		textField8.setColumns(10);
 		
@@ -1423,6 +1486,13 @@ public class ControlEscolar {
 		
 		JTextField textField9 = new JTextField();
 		textField9.setBounds(250, 220, 250, 25);
+		textField9.addKeyListener(new java.awt.event.KeyAdapter() {
+		    @Override
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        limitarEntradaCaracteres(evt, textField9, 30);
+		    }
+
+		});
 		panel_45.add(textField9);
 		textField9.setColumns(10);
 		
@@ -1433,6 +1503,13 @@ public class ControlEscolar {
 		
 		JTextField textField6 = new JTextField();
 		textField6.setBounds(250, 280, 250, 25);
+		textField6.addKeyListener(new java.awt.event.KeyAdapter() {
+		    @Override
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        limitarEntradaCaracteres(evt, textField6, 50);
+		    }
+
+		});
 		panel_45.add(textField6);
 		textField6.setColumns(10);
 		
@@ -1443,6 +1520,13 @@ public class ControlEscolar {
 		
 		JTextField textField7 = new JTextField();
 		textField7.setBounds(250, 340, 250, 25);
+		textField7.addKeyListener(new java.awt.event.KeyAdapter() {
+		    @Override
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        limitarEntradaANumeros(evt, textField7, 10);
+		    }
+
+		});
 		panel_45.add(textField7);
 		textField7.setColumns(10);
 		
@@ -1453,6 +1537,13 @@ public class ControlEscolar {
 		
 		JTextField textField10 = new JTextField();
 		textField10.setBounds(250, 400, 250, 25);
+		textField10.addKeyListener(new java.awt.event.KeyAdapter() {
+		    @Override
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        limitarEntradaALetras(evt, textField10, 25);
+		    }
+
+		});
 		panel_45.add(textField10);
 		textField10.setColumns(10);
 		
@@ -1480,22 +1571,33 @@ public class ControlEscolar {
 		RoundedButton roundedButton2 = new RoundedButton(imagenIconoBotonVolver ,"Regresar", 45, Color.decode("#FF5733"));
 		roundedButton2.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		roundedButton2.setBounds(470, 630, 250, 50);
+		roundedButton2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				cambiarPantalla();
+				panelDocentes(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
 		panel13.add(roundedButton2);
+		
 	}
 	
-	public void consultarDocente(JFrame frame) {
-
-
+	public void descargarDocente(JFrame frame) {
+		
 		JPanel panel13 = new JPanel();
 		frame.getContentPane().add(panel13, BorderLayout.CENTER);
 		panel13.setBackground(Color.decode("#EFEFEF"));
 		panel13.setLayout(null);
 		
 		
-		
-		JLabel lblNewLabel_18 = new JLabel("Consulta de docentes");
+		JLabel lblNewLabel_18 = new JLabel("Descargar datos de docente");
 		lblNewLabel_18.setFont(new Font("Times New Roman", Font.BOLD, 30));
-		lblNewLabel_18.setBounds(20, 30, 300, 100);
+		lblNewLabel_18.setBounds(20, 30, 400, 100);
 		panel13.add(lblNewLabel_18);
 		
 		JPanel panel_45 = new JPanel();
@@ -1587,6 +1689,411 @@ public class ControlEscolar {
 		botonDescargar.setBackground(Color.white);
 		botonDescargar.setBounds(580, 100, 256, 256);
 		panel_45.add(botonDescargar);
+		
+		ImageIcon imagenIconoBotonDescargar = new ImageIcon(getClass().getResource("/Imagenes/IconoBotonDescargar.png"));
+		RoundedButton roundedButton = new RoundedButton(imagenIconoBotonDescargar ,"Descargar", 45, Color.decode("#FF5733"));
+		roundedButton.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		roundedButton.setBounds(200, 630, 250, 50);
+		panel13.add(roundedButton);
+		
+		ImageIcon imagenIconoBotonVolver = new ImageIcon(getClass().getResource("/Imagenes/IconoVolver.png"));
+		RoundedButton roundedButton2 = new RoundedButton(imagenIconoBotonVolver ,"Regresar", 45, Color.decode("#FF5733"));
+		roundedButton2.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		roundedButton2.setBounds(470, 630, 250, 50);
+		roundedButton2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				cambiarPantalla();
+				panelDocentes(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
+		panel13.add(roundedButton2);
+		
+	}
+
+	public void crearDocente(JFrame frame) {
+		
+		JPanel panel13 = new JPanel();
+		frame.getContentPane().add(panel13, BorderLayout.CENTER);
+		panel13.setBackground(Color.decode("#EFEFEF"));
+		panel13.setLayout(null);
+		
+		
+		JLabel lblNewLabel_18 = new JLabel("Crear datos de docente");
+		lblNewLabel_18.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		lblNewLabel_18.setBounds(20, 30, 400, 100);
+		panel13.add(lblNewLabel_18);
+		
+		JPanel panel_45 = new JPanel();
+		panel_45.setLayout(null);
+		panel_45.setBorder(BorderFactory.createLineBorder(Color.black , 2));
+		panel_45.setBounds(20, 130, 880, 460);
+		panel13.add(panel_45);
+		
+		JLabel lblNewLabel_19 = new JLabel("Apellido paterno");
+		lblNewLabel_19.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_19.setBounds(70, 30, 170, 40);
+		panel_45.add(lblNewLabel_19);
+		
+		textField = new JTextField();
+		textField.setBounds(250, 40, 250, 25);
+		panel_45.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_11 = new JLabel("Apellido materno");
+		lblNewLabel_11.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_11.setBounds(63, 90, 190, 40);
+		panel_45.add(lblNewLabel_11);
+		
+		JTextField textField14 = new JTextField();
+		textField14.setBounds(250, 100, 250, 25);
+		panel_45.add(textField14);
+		textField14.setColumns(10);
+		
+		JLabel lblNewLabel_16 = new JLabel("Nombre");
+		lblNewLabel_16.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_16.setBounds(155, 150, 190, 40);
+		panel_45.add(lblNewLabel_16);
+		
+		JTextField textField8 = new JTextField();
+		textField8.setBounds(250, 160, 250, 25);
+		panel_45.add(textField8);
+		textField8.setColumns(10);
+		
+		JLabel lblNewLabel_17 = new JLabel("Fecha de nacimiento");
+		lblNewLabel_17.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_17.setBounds(30, 210, 220, 40);
+		panel_45.add(lblNewLabel_17);
+		
+		JTextField textField9 = new JTextField();
+		textField9.setBounds(250, 220, 250, 25);
+		panel_45.add(textField9);
+		textField9.setColumns(10);
+		
+		JLabel lblNewLabel_12 = new JLabel("Correo electronico");
+		lblNewLabel_12.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_12.setBounds(50, 270, 200, 40);
+		panel_45.add(lblNewLabel_12);
+		
+		JTextField textField6 = new JTextField();
+		textField6.setBounds(250, 280, 250, 25);
+		panel_45.add(textField6);
+		textField6.setColumns(10);
+		
+		JLabel lblNewLabel_13 = new JLabel("Telefono");
+		lblNewLabel_13.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_13.setBounds(145, 330, 147, 40);
+		panel_45.add(lblNewLabel_13);
+		
+		JTextField textField7 = new JTextField();
+		textField7.setBounds(250, 340, 250, 25);
+		panel_45.add(textField7);
+		textField7.setColumns(10);
+		
+		JLabel lblNewLabel_15 = new JLabel("Grado de estudios");
+		lblNewLabel_15.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_15.setBounds(55, 390, 197, 40);
+		panel_45.add(lblNewLabel_15);
+		
+		JTextField textField10 = new JTextField();
+		textField10.setBounds(250, 400, 250, 25);
+		panel_45.add(textField10);
+		textField10.setColumns(10);
+		
+		ImageIcon camara = new ImageIcon(getClass().getResource("/Imagenes/CamaraIcono.png"));
+		JLabel lblNewLabel_14 = new JLabel("Fotografia del docente");
+		lblNewLabel_14.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lblNewLabel_14.setIcon(camara);
+		lblNewLabel_14.setBounds(575, 30, 270, 40);
+		panel_45.add(lblNewLabel_14);
+		
+		ImageIcon imagenUsuario = new ImageIcon(getClass().getResource("/Imagenes/IconoFoto.png"));
+		JButton botonDescargar = new JButton(imagenUsuario);
+		botonDescargar.setOpaque(true);
+		botonDescargar.setBackground(Color.white);
+		botonDescargar.setBounds(580, 100, 256, 256);
+		panel_45.add(botonDescargar);
+		
+		ImageIcon imagenIconoBotonDescargar = new ImageIcon(getClass().getResource("/Imagenes/IconoBotonCrear.png"));
+		RoundedButton roundedButton = new RoundedButton(imagenIconoBotonDescargar ,"Crear datos", 45, Color.decode("#FF5733"));
+		roundedButton.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		roundedButton.setBounds(200, 630, 250, 50);
+		panel13.add(roundedButton);
+		
+		ImageIcon imagenIconoBotonVolver = new ImageIcon(getClass().getResource("/Imagenes/IconoVolver.png"));
+		RoundedButton roundedButton2 = new RoundedButton(imagenIconoBotonVolver ,"Regresar", 45, Color.decode("#FF5733"));
+		roundedButton2.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		roundedButton2.setBounds(470, 630, 250, 50);
+		roundedButton2.addActionListener(new ActionListener() {
+	
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				cambiarPantalla();
+				panelDocentes(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
+		panel13.add(roundedButton2);
+	}
+
+	public void eliminarDocente(JFrame frame) {
+		
+		JPanel panel13 = new JPanel();
+		frame.getContentPane().add(panel13, BorderLayout.CENTER);
+		panel13.setBackground(Color.decode("#EFEFEF"));
+		panel13.setLayout(null);
+		
+		
+		JLabel lblNewLabel_18 = new JLabel("Eliminar datos de docente");
+		lblNewLabel_18.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		lblNewLabel_18.setBounds(20, 30, 400, 100);
+		panel13.add(lblNewLabel_18);
+		
+		JPanel panel_45 = new JPanel();
+		panel_45.setLayout(null);
+		panel_45.setBorder(BorderFactory.createLineBorder(Color.black , 2));
+		panel_45.setBounds(20, 130, 880, 460);
+		panel13.add(panel_45);
+		
+		JLabel lblNewLabel_19 = new JLabel("Apellido paterno");
+		lblNewLabel_19.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_19.setBounds(70, 30, 170, 40);
+		panel_45.add(lblNewLabel_19);
+		
+		textField = new JTextField();
+		textField.setBounds(250, 40, 250, 25);
+		panel_45.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_11 = new JLabel("Apellido materno");
+		lblNewLabel_11.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_11.setBounds(63, 90, 190, 40);
+		panel_45.add(lblNewLabel_11);
+		
+		JTextField textField14 = new JTextField();
+		textField14.setBounds(250, 100, 250, 25);
+		panel_45.add(textField14);
+		textField14.setColumns(10);
+		
+		JLabel lblNewLabel_16 = new JLabel("Nombre");
+		lblNewLabel_16.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_16.setBounds(155, 150, 190, 40);
+		panel_45.add(lblNewLabel_16);
+		
+		JTextField textField8 = new JTextField();
+		textField8.setBounds(250, 160, 250, 25);
+		panel_45.add(textField8);
+		textField8.setColumns(10);
+		
+		JLabel lblNewLabel_17 = new JLabel("Fecha de nacimiento");
+		lblNewLabel_17.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_17.setBounds(30, 210, 220, 40);
+		panel_45.add(lblNewLabel_17);
+		
+		JTextField textField9 = new JTextField();
+		textField9.setBounds(250, 220, 250, 25);
+		panel_45.add(textField9);
+		textField9.setColumns(10);
+		
+		JLabel lblNewLabel_12 = new JLabel("Correo electronico");
+		lblNewLabel_12.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_12.setBounds(50, 270, 200, 40);
+		panel_45.add(lblNewLabel_12);
+		
+		JTextField textField6 = new JTextField();
+		textField6.setBounds(250, 280, 250, 25);
+		panel_45.add(textField6);
+		textField6.setColumns(10);
+		
+		JLabel lblNewLabel_13 = new JLabel("Telefono");
+		lblNewLabel_13.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_13.setBounds(145, 330, 147, 40);
+		panel_45.add(lblNewLabel_13);
+		
+		JTextField textField7 = new JTextField();
+		textField7.setBounds(250, 340, 250, 25);
+		panel_45.add(textField7);
+		textField7.setColumns(10);
+		
+		JLabel lblNewLabel_15 = new JLabel("Grado de estudios");
+		lblNewLabel_15.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_15.setBounds(55, 390, 197, 40);
+		panel_45.add(lblNewLabel_15);
+		
+		JTextField textField10 = new JTextField();
+		textField10.setBounds(250, 400, 250, 25);
+		panel_45.add(textField10);
+		textField10.setColumns(10);
+		
+		ImageIcon camara = new ImageIcon(getClass().getResource("/Imagenes/CamaraIcono.png"));
+		JLabel lblNewLabel_14 = new JLabel("Fotografia del docente");
+		lblNewLabel_14.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lblNewLabel_14.setIcon(camara);
+		lblNewLabel_14.setBounds(575, 30, 270, 40);
+		panel_45.add(lblNewLabel_14);
+		
+		ImageIcon imagenUsuario = new ImageIcon(getClass().getResource("/Imagenes/IconoFoto.png"));
+		JButton botonDescargar = new JButton(imagenUsuario);
+		botonDescargar.setOpaque(true);
+		botonDescargar.setBackground(Color.white);
+		botonDescargar.setBounds(580, 100, 256, 256);
+		panel_45.add(botonDescargar);
+		
+		ImageIcon imagenIconoBotonDescargar = new ImageIcon(getClass().getResource("/Imagenes/BotonIconoBorrar.png"));
+		RoundedButton roundedButton = new RoundedButton(imagenIconoBotonDescargar ,"Borrar datos", 45, Color.decode("#FF5733"));
+		roundedButton.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		roundedButton.setBounds(200, 630, 250, 50);
+		panel13.add(roundedButton);
+		
+		ImageIcon imagenIconoBotonVolver = new ImageIcon(getClass().getResource("/Imagenes/IconoVolver.png"));
+		RoundedButton roundedButton2 = new RoundedButton(imagenIconoBotonVolver ,"Regresar", 45, Color.decode("#FF5733"));
+		roundedButton2.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		roundedButton2.setBounds(470, 630, 250, 50);
+		roundedButton2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				cambiarPantalla();
+				panelDocentes(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
+		panel13.add(roundedButton2);
+	}
+	
+	public void consultarDocente(JFrame frame) {
+
+
+		JPanel panel13 = new JPanel();
+		frame.getContentPane().add(panel13, BorderLayout.CENTER);
+		panel13.setBackground(Color.decode("#EFEFEF"));
+		panel13.setLayout(null);
+		
+		
+		
+		JLabel lblNewLabel_18 = new JLabel("Consulta de datos de docente");
+		lblNewLabel_18.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		lblNewLabel_18.setBounds(20, 30, 390, 100);
+		panel13.add(lblNewLabel_18);
+		
+		JPanel panel_45 = new JPanel();
+		panel_45.setLayout(null);
+		panel_45.setBorder(BorderFactory.createLineBorder(Color.black , 2));
+		panel_45.setBounds(20, 130, 880, 460);
+		panel13.add(panel_45);
+		
+		JLabel lblNewLabel_19 = new JLabel("Apellido paterno");
+		lblNewLabel_19.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_19.setBounds(70, 30, 170, 40);
+		panel_45.add(lblNewLabel_19);
+		
+		textField = new JTextField();
+		textField.setBounds(250, 40, 250, 25);
+		panel_45.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_11 = new JLabel("Apellido materno");
+		lblNewLabel_11.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_11.setBounds(63, 90, 190, 40);
+		panel_45.add(lblNewLabel_11);
+		
+		JTextField textField14 = new JTextField();
+		textField14.setBounds(250, 100, 250, 25);
+		panel_45.add(textField14);
+		textField14.setColumns(10);
+		
+		JLabel lblNewLabel_16 = new JLabel("Nombre");
+		lblNewLabel_16.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_16.setBounds(155, 150, 190, 40);
+		panel_45.add(lblNewLabel_16);
+		
+		JTextField textField8 = new JTextField();
+		textField8.setBounds(250, 160, 250, 25);
+		panel_45.add(textField8);
+		textField8.setColumns(10);
+		
+		JLabel lblNewLabel_17 = new JLabel("Fecha de nacimiento");
+		lblNewLabel_17.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_17.setBounds(30, 210, 220, 40);
+		panel_45.add(lblNewLabel_17);
+		
+		JTextField textField9 = new JTextField();
+		textField9.setBounds(250, 220, 250, 25);
+		panel_45.add(textField9);
+		textField9.setColumns(10);
+		
+		JLabel lblNewLabel_12 = new JLabel("Correo electronico");
+		lblNewLabel_12.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_12.setBounds(50, 270, 200, 40);
+		panel_45.add(lblNewLabel_12);
+		
+		JTextField textField6 = new JTextField();
+		textField6.setBounds(250, 280, 250, 25);
+		panel_45.add(textField6);
+		textField6.setColumns(10);
+		
+		JLabel lblNewLabel_13 = new JLabel("Telefono");
+		lblNewLabel_13.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_13.setBounds(145, 330, 147, 40);
+		panel_45.add(lblNewLabel_13);
+		
+		JTextField textField7 = new JTextField();
+		textField7.setBounds(250, 340, 250, 25);
+		panel_45.add(textField7);
+		textField7.setColumns(10);
+		
+		JLabel lblNewLabel_15 = new JLabel("Grado de estudios");
+		lblNewLabel_15.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_15.setBounds(55, 390, 197, 40);
+		panel_45.add(lblNewLabel_15);
+		
+		JTextField textField10 = new JTextField();
+		textField10.setBounds(250, 400, 250, 25);
+		panel_45.add(textField10);
+		textField10.setColumns(10);
+		
+		ImageIcon camara = new ImageIcon(getClass().getResource("/Imagenes/CamaraIcono.png"));
+		JLabel lblNewLabel_14 = new JLabel("Fotografia del docente");
+		lblNewLabel_14.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lblNewLabel_14.setIcon(camara);
+		lblNewLabel_14.setBounds(575, 30, 270, 40);
+		panel_45.add(lblNewLabel_14);
+		
+		ImageIcon imagenUsuario = new ImageIcon(getClass().getResource("/Imagenes/IconoFoto.png"));
+		JButton botonDescargar = new JButton(imagenUsuario);
+		botonDescargar.setOpaque(true);
+		botonDescargar.setBackground(Color.white);
+		botonDescargar.setBounds(580, 100, 256, 256);
+		panel_45.add(botonDescargar);
+		
+		ImageIcon imagenIconoBotonVolver = new ImageIcon(getClass().getResource("/Imagenes/IconoVolver.png"));
+		RoundedButton roundedButton2 = new RoundedButton(imagenIconoBotonVolver ,"Regresar", 45, Color.decode("#FF5733"));
+		roundedButton2.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		roundedButton2.setBounds(335, 630, 250, 50);
+		roundedButton2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				cambiarPantalla();
+				panelDocentes(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
+		panel13.add(roundedButton2);
 	}
 	
 	public void logout(JFrame frame) {
