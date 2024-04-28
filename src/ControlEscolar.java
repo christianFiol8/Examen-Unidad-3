@@ -254,12 +254,12 @@ public class ControlEscolar {
 				
 			}});
 		
-		//this.seleccionPerfil(frame);
-		//this.login(frame);
+		this.seleccionPerfil(frame);
+		//this.login(frame, null );
 		//this.registroAlumno(frame);
 		//this.registroDocente(frame);
 		//this.panelAlumnos(frame);
-		this.panelDocentes(frame);
+		//this.panelDocentes(frame);
 		//this.consultarAlumno(frame);
 		//this.logout(frame);
 		//this.consultarDocente(frame);
@@ -304,8 +304,10 @@ public class ControlEscolar {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				
+				
+				String perfil = "alumno";
 				cambiarPantalla();
-				login(frame);
+				login(frame , perfil);
 				frame.revalidate();
 				frame.repaint();
 				
@@ -334,8 +336,10 @@ public class ControlEscolar {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				
+				String perfil = "docente";
+				
 				cambiarPantalla();
-				login(frame);
+				login(frame , perfil);
 				frame.revalidate();
 				frame.repaint();
 				
@@ -350,7 +354,7 @@ public class ControlEscolar {
 	
 	
 	//Panel de login
-	public void login(JFrame frame) {
+	public void login(JFrame frame ,String perfil) {
 		
 		JPanel panel = new JPanel();
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
@@ -379,6 +383,10 @@ public class ControlEscolar {
 		lblNewLabel_2.setBounds(53, 160, 100, 13);
 		panel_1.add(lblNewLabel_2);
 		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(50, 196, 400, 20);
+		panel_1.add(passwordField);
+		
 		
 		
 		JCheckBox chckbxNewCheckBox = new JCheckBox("Recordarme");
@@ -390,11 +398,50 @@ public class ControlEscolar {
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		btnNewButton.setBounds(53, 301, 400, 21);
 		btnNewButton.setBackground(Color.decode("#E47E38"));
+		btnNewButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				String usr=textField.getText().toString();
+				String pwd= new String(passwordField.getPassword());
+				
+				if(usr.length()<=0) {
+					textField.setBorder(BorderFactory.createLineBorder(Color.red , 2));
+				}
+				else {
+					textField.setBorder(BorderFactory.createLineBorder(Color.green , 2));
+				}
+				
+				if(pwd.length()<=0) {
+					passwordField.setBorder(BorderFactory.createLineBorder(Color.red , 2));
+				}
+				else {
+					passwordField.setBorder(BorderFactory.createLineBorder(Color.green , 2));
+				}
+				
+				if(perfil.equals("alumno")) {
+					
+					cambiarPantalla();
+					panelAlumnos(frame);
+					frame.revalidate();
+					frame.repaint();
+					
+				}else {
+					
+					cambiarPantalla();
+					panelDocentes(frame);
+					frame.revalidate();
+					frame.repaint();
+				}
+				
+				
+				
+			}});
 		panel_1.add(btnNewButton);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(50, 196, 400, 20);
-		panel_1.add(passwordField);
+		
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(560, 103, 290, 500);
