@@ -26,10 +26,13 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JScrollBar;
 
 public class ControlEscolar {
 
@@ -40,6 +43,11 @@ public class ControlEscolar {
 	
 	JButton botonDocente;
 	JButton botonAlumno;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	private JTextField textField_5;
+	private JTable table;
+	private JTextField textField_6;
 
 	/**
 	 * Launch the application.
@@ -258,9 +266,10 @@ public class ControlEscolar {
 		//this.login(frame, null );
 		//this.registroAlumno(frame);
 		//this.registroDocente(frame);
-		//this.panelAlumnos(frame);
-		this.panelDocentes(frame);
+		this.panelAlumnos(frame);
+		//this.panelDocentes(frame);
 		//this.consultarAlumno(frame);
+		//this.verCalificacionesAlumno(frame);
 		//this.logout(frame);
 		//this.consultarDocente(frame);
 		//this.editarAlumno(frame);
@@ -680,7 +689,7 @@ public class ControlEscolar {
 		panel_2.setLayout(null);
 		panel.add(panel_2);
 		
-		ImageIcon imagenConsultar = new ImageIcon(getClass().getResource("/Imagenes/IconoConsultar.png"));
+		ImageIcon imagenConsultar = new ImageIcon(getClass().getResource("/Imagenes/search.png"));
 		JButton botonConsultar = new JButton(imagenConsultar);
 		botonConsultar.setBackground(Color.decode("#EFEFEF"));
 		botonConsultar.setBorder(BorderFactory.createLineBorder(Color.black , 2));
@@ -1065,7 +1074,7 @@ public class ControlEscolar {
 		ImageIcon imagenIconoBotonVolver = new ImageIcon(getClass().getResource("/Imagenes/IconoVolver.png"));
 		RoundedButton roundedButton2 = new RoundedButton(imagenIconoBotonVolver ,"Regresar", 45, Color.decode("#FF5733"));
 		roundedButton2.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		roundedButton2.setBounds(335, 570, 250, 50);
+		roundedButton2.setBounds(74, 568, 250, 50);
 		roundedButton2.addActionListener(new ActionListener() {
 
 			@Override
@@ -1079,9 +1088,169 @@ public class ControlEscolar {
 				
 			}});
 		panel12.add(roundedButton2);
+		
+		ImageIcon imagenIconoConsultar = new ImageIcon(getClass().getResource("/Imagenes/IconoConsultar.png"));
+		RoundedButton roundedButton3 = new RoundedButton(imagenIconoConsultar ,"Consultar" , 45 , Color.decode("#FF5733"));
+		roundedButton3.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		roundedButton3.setBounds(346, 570, 235, 50);
+		roundedButton3.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				JOptionPane.showMessageDialog(null, "No hay información por consultar");
+				
+			}});
+		panel12.add(roundedButton3);
+		
+		
+		
+		ImageIcon imagenIconoCalificaciones = new ImageIcon(getClass().getResource("/Imagenes/Calificaciones.png"));
+		RoundedButton roundedButton4 = new RoundedButton(imagenIconoCalificaciones ,"Ver Calificaciones" , 45 , Color.decode("#FF5733"));
+		roundedButton4.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		roundedButton4.setBounds(603, 570, 228, 50);
+		
+		roundedButton4.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				cambiarPantalla();
+				verCalificacionesAlumno(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
+		
+		panel12.add(roundedButton4);
+		
+		
+		
 	}
 	
-	public void editarAlumno(JFrame frame) {
+	public void verCalificacionesAlumno(JFrame frame) {
+		
+		JPanel panel = new JPanel();
+		frame.getContentPane().add(panel, BorderLayout.CENTER);
+		panel.setBackground(Color.decode("#EFEFEF"));
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_22 = new JLabel("Materias");
+		lblNewLabel_22.setFont(new Font("Times New Roman", Font.PLAIN, 30));
+		lblNewLabel_22.setBounds(48, 71, 240, 31);
+		panel.add(lblNewLabel_22);
+		
+		JLabel lblNewLabel_23 = new JLabel("Nombre");
+		lblNewLabel_23.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblNewLabel_23.setBounds(48, 126, 112, 13);
+		panel.add(lblNewLabel_23);
+		
+		JLabel lblNewLabel_24 = new JLabel("No.Control");
+		lblNewLabel_24.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblNewLabel_24.setBounds(453, 120, 112, 19);
+		panel.add(lblNewLabel_24);
+		
+		JLabel lblNewLabel_25 = new JLabel("Carrera");
+		lblNewLabel_25.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblNewLabel_25.setBounds(48, 183, 128, 13);
+		panel.add(lblNewLabel_25);
+		
+		JLabel lblNewLabel_25_1 = new JLabel("Semestre");
+		lblNewLabel_25_1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblNewLabel_25_1.setBounds(453, 183, 128, 13);
+		panel.add(lblNewLabel_25_1);
+		
+		textField_6 = new JTextField();
+		textField_6.setColumns(10);
+		textField_6.setBounds(554, 182, 294, 19);
+		panel.add(textField_6);
+		
+		textField_3 = new JTextField();
+		textField_3.setBounds(149, 125, 294, 19);
+		panel.add(textField_3);
+		textField_3.setColumns(10);
+		
+		textField_4 = new JTextField();
+		textField_4.setBounds(554, 125, 294, 19);
+		panel.add(textField_4);
+		textField_4.setColumns(10);
+		
+		textField_5 = new JTextField();
+		textField_5.setBounds(149, 182, 294, 19);
+		panel.add(textField_5);
+		textField_5.setColumns(10);
+		
+		String titles[]= {"Semestre" , "Materia" , "Grupo" , "Turno" , "Estado" , "Calificacion"};
+		String tableData [][] = {
+				{"1" , "Fisica" , "A" , "Matutino" , "N" , ""},
+				{"1" , "Ingles" , "A" , "Matutino" , "N" , ""},
+				{"1" , "Español" , "A" , "Matutino" , "N" , ""},
+				{"1" , "Matematicas" , "A" , "Matutino" , "N" , ""},
+				{"1" , "Etica" , "A" , "Matutino" , "N" , ""},
+				{"1" , "Electronica" , "A" , "Matutino" , "N" , ""},
+				{"1" , "Historia" , "A" , "Matutino" , "N" , ""},
+				{"2" , "Contabilidad" , "A" , "Matutino" , "N" , ""},
+				{"2" , "Química" , "B" , "Matutino" , "N" , ""},
+				{"2" , "Historia de México" , "A" , "Matutino" , "N" , ""},
+				{"2" , "Cálculo" , "A" , "Matutino" , "N" , ""},
+				{"2" , "Biología" , "B" , "Matutino" , "N" , ""},
+				{"2" , "Base de Datos" , "B" , "Matutino" , "N" , ""},
+				{"2" , "Informatica" , "A" , "Matutino" , "N" , ""},
+		};
+
+		
+		table = new JTable(tableData , titles);
+		table.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		table.setBounds(48, 245, 800, 224);
+		/*JScrollPane tableScroll = new JScrollPane (table);
+		tableScroll.setBounds(40,280,920,300);
+		panel.add(tableScroll);*/
+		
+		panel.add(table);
+		
+		ImageIcon imagenIconoBotonVolver = new ImageIcon(getClass().getResource("/Imagenes/IconoVolver.png"));
+		RoundedButton roundedButton2 = new RoundedButton(imagenIconoBotonVolver ,"Regresar", 45, Color.decode("#FF5733"));
+		roundedButton2.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		roundedButton2.setBounds(193, 527, 250, 50);
+		roundedButton2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				cambiarPantalla();
+				consultarAlumno(frame);
+				frame.revalidate();
+				frame.repaint();
+				
+			}});
+		panel.add(roundedButton2);
+		
+	
+		
+		ImageIcon imagenIconoCalificaciones = new ImageIcon(getClass().getResource("/Imagenes/Calificaciones.png"));
+		RoundedButton roundedButton4 = new RoundedButton(imagenIconoCalificaciones ,"Mostrar" , 45 , Color.decode("#FF5733"));
+		roundedButton4.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		roundedButton4.setBounds(453, 529, 228, 50);
+		
+		roundedButton4.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				JOptionPane.showMessageDialog(null, "No hay calificaciones disponibles");
+				
+			}});
+		
+		panel.add(roundedButton4);
+		
+		
+	}
+	
+ 	public void editarAlumno(JFrame frame) {
 
 
 		JPanel panel12 = new JPanel();
@@ -2388,16 +2557,15 @@ public class ControlEscolar {
 		panel_1.add(btnNewButton_1_1);
 		
 		JLabel lblNewLabel_21 = new JLabel("Vuelve pronto!");
-		lblNewLabel_21.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_21.setBounds(180, 190, 200, 40);
+		lblNewLabel_21.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		lblNewLabel_21.setBounds(165, 186, 200, 40);
 		panel_1.add(lblNewLabel_21);
 		
 		JLabel logout = new JLabel();
-		logout.setSize(150, 150);
-		logout.setLocation(170, 30);
-		ImageIcon imagenLogout = new ImageIcon("/Imagenes/logout1.png");
-		logout.setIcon(imagenLogout);
+		ImageIcon imagenLogout = new ImageIcon("/Imagenes/logoutImagen.png");
+		logout.setBounds(165, 29, 150, 150);
 		panel_1.add(logout);
+		logout.setIcon(imagenLogout);
 	}
 	
 	public void cambiarPantalla() {
