@@ -254,12 +254,12 @@ public class ControlEscolar {
 				
 			}});
 		
-		this.seleccionPerfil(frame);
+		//this.seleccionPerfil(frame);
 		//this.login(frame, null );
 		//this.registroAlumno(frame);
 		//this.registroDocente(frame);
 		//this.panelAlumnos(frame);
-		//this.panelDocentes(frame);
+		this.panelDocentes(frame);
 		//this.consultarAlumno(frame);
 		//this.logout(frame);
 		//this.consultarDocente(frame);
@@ -632,14 +632,6 @@ public class ControlEscolar {
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setBackground(Color.decode("#F1EEE9"));
 		panel.setLayout(null);
-		
-		/*JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 918, 40);
-		menuBar.setBackground(Color.decode("#E47E38"));
-		panel.add(menuBar);
-		
-		JMenu mnNewMenu = new JMenu("Inicio");
-		menuBar.add(mnNewMenu);*/
 		
 		JLabel lblNewLabel_6 = new JLabel("Hola Alumno");
 		lblNewLabel_6.setFont(new Font("Times New Roman", Font.BOLD, 30));
@@ -1349,6 +1341,15 @@ public class ControlEscolar {
 		RoundedButton roundedButton = new RoundedButton(imagenIconoBotonBorrar ,"Borrar datos", 45, Color.decode("#FF5733"));
 		roundedButton.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		roundedButton.setBounds(200, 570, 250, 50);
+		roundedButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				JOptionPane.showMessageDialog(null,"Lo siento, no hay información para borrar");
+				
+			}});
 		panel12.add(roundedButton);
 		
 		ImageIcon imagenIconoBotonVolver = new ImageIcon(getClass().getResource("/Imagenes/IconoVolver.png"));
@@ -1469,6 +1470,45 @@ public class ControlEscolar {
 		RoundedButton roundedButton = new RoundedButton(imagenIconoBotonCrear ,"Crear datos", 45, Color.decode("#FF5733"));
 		roundedButton.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		roundedButton.setBounds(200, 570, 250, 50);
+		
+		roundedButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				String apellidoPaterno = textField.getText().toString();
+				String apellidoMaterno = textField4.getText().toString();
+				String nombre = textField8.getText().toString();
+				String correo = textField6.getText().toString();
+				
+				if(apellidoPaterno.length()<=0) {
+					textField.setBorder(BorderFactory.createLineBorder(Color.red , 2));
+				}else {
+					textField.setBorder(BorderFactory.createLineBorder(Color.green , 2));
+				}
+				
+				if(apellidoMaterno.length()<=0) {
+					textField4.setBorder(BorderFactory.createLineBorder(Color.red , 2));
+				}else {
+					textField4.setBorder(BorderFactory.createLineBorder(Color.green , 2));
+				}
+				
+				if(nombre.length()<=0) {
+					textField8.setBorder(BorderFactory.createLineBorder(Color.red , 2));
+				}else {
+					textField8.setBorder(BorderFactory.createLineBorder(Color.green , 2));
+				}
+				
+				if(correo.length()<=0) {
+					textField6.setBorder(BorderFactory.createLineBorder(Color.red , 2));
+				}else {
+					textField6.setBorder(BorderFactory.createLineBorder(Color.green , 2));
+				}
+				
+				
+			}});
+		
 		panel12.add(roundedButton);
 		
 		ImageIcon imagenIconoBotonVolver = new ImageIcon(getClass().getResource("/Imagenes/IconoVolver.png"));
@@ -1589,6 +1629,17 @@ public class ControlEscolar {
 		RoundedButton roundedButton = new RoundedButton(imagenIconoBotonDescargar ,"Descargar", 45, Color.decode("#FF5733"));
 		roundedButton.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		roundedButton.setBounds(200, 570, 250, 50);
+		
+		roundedButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				JOptionPane.showMessageDialog(null, "Lo siento , no hay información para descargar");
+				
+			}});
+		
 		panel12.add(roundedButton);
 		
 		ImageIcon imagenIconoBotonVolver = new ImageIcon(getClass().getResource("/Imagenes/IconoVolver.png"));
@@ -1826,6 +1877,17 @@ public class ControlEscolar {
 		RoundedButton roundedButton = new RoundedButton(imagenIconoBotonDescargar ,"Descargar", 45, Color.decode("#FF5733"));
 		roundedButton.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		roundedButton.setBounds(200, 570, 250, 50);
+		
+		roundedButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				JOptionPane.showMessageDialog(null, "Lo siento, no hay información para descargar");
+				
+			}});
+		
 		panel12.add(roundedButton);
 		
 		ImageIcon imagenIconoBotonVolver = new ImageIcon(getClass().getResource("/Imagenes/IconoVolver.png"));
@@ -1943,6 +2005,15 @@ public class ControlEscolar {
 		RoundedButton roundedButton = new RoundedButton(imagenIconoBotonBorrar ,"Borrar datos", 45, Color.decode("#FF5733"));
 		roundedButton.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		roundedButton.setBounds(200, 570, 250, 50);
+		roundedButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				JOptionPane.showMessageDialog(null, "Lo siento, no hay información para borrar");
+				
+			}});
 		panel12.add(roundedButton);
 		
 		ImageIcon imagenIconoBotonVolver = new ImageIcon(getClass().getResource("/Imagenes/IconoVolver.png"));
